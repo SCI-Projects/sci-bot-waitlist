@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCI-BOT — الرفيق الأكاديمي الذكي لكلية العلوم | جامعة عين شمس</title>
+  <meta name="description" content="SCI-BOT هو المساعد الأكاديمي الذكي المخصص لطلاب وأعضاء هيئة التدريس بكلية العلوم - جامعة عين شمس. يفهم مقررات الكلية، الشيتات، والمحاضرات مع حماية قصوى للخصوصية والأمان.">
+  <meta name="keywords" content="SCI-BOT, كلية العلوم, جامعة عين شمس, ذكاء اصطناعي تعليمي, Ain Shams Science, AI Chatbot, ASU">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Lighting Effects -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+  <div class="ambient-glow-3"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-wrapper">
+        <div class="brand-icon">
+          <img src="assets/mascot.jpg" alt="SCI-BOT Icon">
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">
+            SCI-<span class="bot">BOT</span>
+          </div>
+          <span class="brand-subtitle" data-i18n="brandSubtitle">قسم علوم الحاسب — كلية العلوم، جامعة عين شمس</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#features" class="nav-link" data-i18n="navFeatures">الميزات</a></li>
+        <li><a href="#security" class="nav-link" data-i18n="navSecurity">الأمان والخصوصية</a></li>
+        <li><a href="#demo" class="nav-link" data-i18n="navDemo">تجربة سريعة</a></li>
+        <li><a href="#team" class="nav-link" data-i18n="navTeam">فريق العمل</a></li>
+        <li><a href="#download" class="nav-link" data-i18n="navArticle">وثيقة المشروع</a></li>
+        <li><a href="#feedback" class="nav-link" data-i18n="navContact">اقتراح ميزة</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <div class="coming-soon-pill">
+          <span class="pulse-dot"></span>
+          <span data-i18n="comingSoonPill">قريباً لطلاب حاسب علوم عين شمس</span>
+        </div>
+
+        <button class="lang-toggle" id="langToggleBtn" aria-label="Toggle Language">
+          🌐 English
+        </button>
+
+        <button class="mobile-toggle" id="mobileToggleBtn" aria-label="Toggle Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Hero Text Column -->
+      <div class="hero-content">
+        <div class="hero-badge-row">
+          <span class="hero-tag" data-i18n="heroTag">الرفيق الذكي لطلاب علوم الحاسب والبرمجة</span>
+          <span class="hero-asu-tag" data-i18n="heroAsuTag">حاسب آلي — علوم عين شمس</span>
+        </div>
+
+        <h1 class="hero-title" data-i18n="heroTitle">
+          مش شات جي بي تي عادي..<br>
+          <span class="gradient-text">ده رفيقك في علوم الحاسب</span> اللي فاهم كليتك!
+        </h1>
+
+        <span class="hero-punchline" data-i18n="heroPunchline">
+          «عشان ماتحتاجش تسأل جروب الدفعة على الواتساب الساعة 3 الفجر!» ☕
+        </span>
+
+        <p class="hero-description" data-i18n="heroDesc">
+          أول روبوت ذكاء اصطناعي أكاديمي يفهم مقررات علوم الحاسب بعين شمس، دكاترة القسم، وشيتات الخوارزميات والـ Data Structures. مش مجرد توليد كود جاهز.. ده بيشرحلك الـ Logic خطوة بخطوة ويجهزك لمناقشة المشاريع والفاينال بأمان تام مع بريدك الجامعي.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#demo" class="btn btn-primary" data-i18n="btnTryDemo">
+            🚀 جرب تسأله تجريبياً
+          </a>
+          <a href="#download" class="btn btn-glass" data-i18n="btnDownloadDoc">
+            📄 قراءة وتحميل وثيقة المشروع
+          </a>
+          <button class="btn btn-emerald trigger-suggest-modal" data-i18n="btnSuggestHero">
+            💡 اقترح ميزة جديدة
+          </button>
+        </div>
+
+        <div class="hero-credentials-pill">
+          <svg class="cred-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span data-i18n="credText">تسجيل الدخول مشروط بالبريد الجامعي المعتمد:</span>
+          <code>@sci.asu.edu.eg</code>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Mascot Column -->
+      <div class="hero-visual-card">
+        <div class="mascot-glow-container">
+          <img src="assets/mascot.jpg" alt="SCI-BOT Mascot" class="mascot-img">
+          
+          <div class="float-card-chat">
+            <span data-i18n="floatChat">«شرحتلك الـ Recursion ومسألة شيت الخوارزميات!» 💻</span>
+          </div>
+
+          <div class="float-card-privacy">
+            <span data-i18n="floatPrivacy">🔒 كودك ومحادثتك خاصة 100% ومش مراقبة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Coming Soon Banner & Milestone Countdown (15 December 2026) -->
+  <section class="container">
+    <div class="coming-soon-banner">
+      <div class="banner-content">
+        <div class="banner-text">
+          <h3 data-i18n="csTitle">⏳ ميعاد الإطلاق التجريبي: 15 ديسمبر 2026!</h3>
+          <p data-i18n="csDesc">
+            النظام حالياً في مراحل التطوير المتقدمة والاختبار الميداني ضمن مشروعات تخرج قسم علوم الحاسب لعام 2026. العد التنازلي بدأ حتى 15 ديسمبر.. جهز إيميلك الجامعي ومفتاح الـ API اللي بتفضله!
+          </p>
+        </div>
+
+        <div class="banner-countdown">
+          <div class="countdown-box">
+            <div class="countdown-num" id="cdDays">92</div>
+            <div class="countdown-label" data-i18n="csDays">أيام</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-num" id="cdHours">09</div>
+            <div class="countdown-label" data-i18n="csHours">ساعات</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-num" id="cdMins">12</div>
+            <div class="countdown-label" data-i18n="csMinutes">دقائق</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-num" id="cdSecs">40</div>
+            <div class="countdown-label" data-i18n="csSeconds">ثوانٍ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reality Check: General AI vs SCI-BOT -->
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="rcTag">المقارنة الصادقة</span>
+        <h2 class="section-title" data-i18n="rcTitle">ليه الذكاء الاصطناعي العام مش كفاية لطلاب علوم الحاسب؟</h2>
+        <p class="section-desc" data-i18n="rcDesc">
+          النماذج العامة شاطرة في كتابة كود سطحي، بس أول ما تسألها عن شيت مادتك أو طريقة دكتورك بتعترف إنها "في كوكب تاني":
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Generic AI -->
+        <div class="comp-card generic">
+          <div class="comp-header">
+            <h3 class="comp-title" data-i18n="genAiTitle">الذكاء الاصطناعي العام (ChatGPT العادي)</h3>
+            <span class="comp-badge bad" data-i18n="genAiBadge">مش فاهم كليتك ❌</span>
+          </div>
+          <ul class="comp-list">
+            <li>
+              <span class="comp-icon">🤷‍♂️</span>
+              <span data-i18n="genItem1"><strong>"مين دكتور مادة الـ Data Structures والـ Algorithms؟"</strong> — عذراً، لا أملك معلومات عن كليتك ولا أعرف مقررات قسمك!</span>
+            </li>
+            <li>
+              <span class="comp-icon">📋</span>
+              <span data-i18n="genItem2"><strong>"حللي شيت البرمجة ده فوراً"</strong> — بيرميلك كود كامل، ولما الدكتور يسألك في المناقشة "عملت الـ Pointer ده ليه؟" تقف محتار.</span>
+            </li>
+            <li>
+              <span class="comp-icon">🌐</span>
+              <span data-i18n="genItem3"><strong>"مقررات قسم علوم الحاسب"</strong> — بيقترح مناهج عشوائية ملهاش أي علاقة بلائحة وسكاشن الكلية.</span>
+            </li>
+            <li>
+              <span class="comp-icon">⚠️</span>
+              <span data-i18n="genItem4"><strong>الخصوصية</strong> — بياناتك وأكوادك ومحادثاتك قد تُستخدم في تدريب النماذج العامة دون عزل كامل.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SCI-BOT -->
+        <div class="comp-card scibot">
+          <div class="comp-header">
+            <h3 class="comp-title" data-i18n="sciBotTitle">SCI-BOT المخصص لحاسب علوم عين شمس</h3>
+            <span class="comp-badge good" data-i18n="sciBotBadge">ابن القسم وفاهم كودك ✅</span>
+          </div>
+          <ul class="comp-list">
+            <li>
+              <span class="comp-icon">💻</span>
+              <span data-i18n="sciItem1"><strong>عارف دكاترة ومقررات علوم الحاسب:</strong> يربط الحلول بالمصطلحات وطريقة الشرح المعتمدة بمحاضرات القسم.</span>
+            </li>
+            <li>
+              <span class="comp-icon">💡</span>
+              <span data-i18n="sciItem2"><strong>توجيه برمجي وسقراطي ذكي:</strong> تلميحات بالـ Pseudo-code وشرح التعقيد الزمني O(n) عشان تفهم الكود بجد.</span>
+            </li>
+            <li>
+              <span class="comp-icon">📚</span>
+              <span data-i18n="sciItem3"><strong>قاعدة معرفة الكلية والشيتات:</strong> مطلع على مذكرات المحاضرات وسكاشن المعمل المعتمدة بقسمك.</span>
+            </li>
+            <li>
+              <span class="comp-icon">🛡️</span>
+              <span data-i18n="sciItem4"><strong>خصوصية فولاذية وعزل بيانات:</strong> محادثتك وأكوادك سرية تماماً ولا تُستخدم أبداً للدرجات أو المراقبة.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="featTag">حزمة القدرات</span>
+        <h2 class="section-title" data-i18n="featTitle">ميزات صُممت خصيصاً لمجتمع كلية العلوم</h2>
+        <p class="section-desc" data-i18n="featDesc">
+          من الفرقة الأولى وحتى سنة التخرج.. SCI-BOT معاك في كل خطوة دراسية ومعملية:
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">🧠</div>
+          <h3 data-i18n="f1Title">المساعد السقراطي التعليمي</h3>
+          <p data-i18n="f1Desc">
+            بدل ما يديك الإجابة الجاهزة للشيت وتدخل الامتحان مش فاهم، بيمشي معاك خطوة بخطوة بالأسئلة والتلميحات لحد ما توصل للحل الصح.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f1Tag">فهم حقيقي مش حفظ</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">💻</div>
+          <h3 data-i18n="f2Title">برمجة العلوم (Vibe Coding)</h3>
+          <p data-i18n="f2Desc">
+            دعم قوي لأكواد بايثون، C++، والتحليل العددي ومحاكاة التجارب. يكتشف الأخطاء في الكود ويفهمك سبب الـ Bug وكيفية تصحيحه.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f2Tag">Python & C++ للمشاريع</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">📝</div>
+          <h3 data-i18n="f3Title">مراجعة التقارير والأبحاث العلمية</h3>
+          <p data-i18n="f3Desc">
+            تدقيق لغوي وعلمي للتقارير والأوراق البحثية، صياغة LaTeX، مراجعة التسلسل المنطقي والتأكد من أسلوب الكتابة الأكاديمية والمراجع.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f3Tag">LaTeX & Scientific Style</span>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">📚</div>
+          <h3 data-i18n="f4Title">قاعدة المعرفة الذكية (RAG)</h3>
+          <p data-i18n="f4Desc">
+            ربط مباشر بالمحاضرات وسلايدات الدكاترة مع تصنيف دقيق يمنع خلط مذكرات وتلخيصات الطلاب بالمواد الرسمية المعتمدة.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f4Tag">Official vs Community RAG</span>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">📅</div>
+          <h3 data-i18n="f5Title">الوعي بالتقويم الأكاديمي</h3>
+          <p data-i18n="f5Desc">
+            البوت بيتأقلم مع فترتك الحالية: نصائح تسجيل وتجهيز مواد في البداية، خطط مراجعة للميدتيرم، دعم للامتحانات، واستشارات لمشروع التخرج.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f5Tag">مواكب لمراحل الترم</span>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">👨‍🏫</div>
+          <h3 data-i18n="f6Title">دليل أساتذة الكلية وتخصصاتهم</h3>
+          <p data-i18n="f6Desc">
+            معلومات معتمدة عن أعضاء هيئة التدريس، المقررات التي يدرسونها، اهتماماتهم البحثية، ومواعيد الساعات الإرشادية الرسمية.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f6Tag">Faculty Directory</span>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">🧘</div>
+          <h3 data-i18n="f7Title">الدعم النفسي وتنظيم الوقت</h3>
+          <p data-i18n="f7Desc">
+            مضغوط وشايل هم الشيتات؟ بيساعدك تفكك المنهج لمهام يومية واقعية من غير توتر، مع إحالة الحالات الحرجة للجهات الرسمية بالجامعة.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f7Tag">Workload De-stress</span>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="feature-box">
+          <div class="feature-icon-bubble">⚡</div>
+          <h3 data-i18n="f8Title">شغّل الذكاء الاصطناعي اللي يريحك (Gemini, Claude, GPT)</h3>
+          <p data-i18n="f8Desc">
+            مش هنجبرك على موديل واحد! تقدر تستخدم البوت بمفتاحك الخاص وتربطه بالموديل المفضل ليك: Google Gemini، أو Groq فائق السرعة، أو Claude للكتابة، أو DeepSeek و OpenAI بكل سهولة وبدون أي قيود.
+          </p>
+          <span class="feature-tag-chip" data-i18n="f8Tag">مرونة تامة بدون إجبار على موديل</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Privacy Fortress -->
+  <section class="section security-section" id="security">
+    <div class="container">
+      <div class="section-header">
+        <div class="security-badge-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span data-i18n="secTag">الخصوصية والأمان أولاً</span>
+        </div>
+        <h2 class="section-title" data-i18n="secTitle">بياناتك وأكوادك في أمان تام.. الخصوصية مبنية في صميم النظام</h2>
+        <p class="section-desc" data-i18n="secDesc">
+          حرصنا في SCI-BOT ألا يكون مجرد أداة ذكية، بل قلعة أمان تحترم خصوصية الطالب بالكامل:
+        </p>
+      </div>
+
+      <div class="security-grid">
+        <!-- Sec 1 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">🔒</div>
+            <h4 data-i18n="s1Title">عزل تام للمحادثات ومسودات الكود</h4>
+          </div>
+          <p data-i18n="s1Desc">
+            محادثاتك وأكوادك ومسودات مشاريعك مفصولة ومحمية؛ لا يمكن لطالب آخر رؤيتها ولا تضاف للمعرفة العامة بدون إذنك.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s1High">كودك ومحادثاتك ملك لك وحدك</div>
+        </div>
+
+        <!-- Sec 2 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">🚫</div>
+            <h4 data-i18n="s2Title">ممنوع المراقبة أو تقييم الدرجات</h4>
+          </div>
+          <p data-i18n="s2Desc">
+            لا يمكن استخدام المحادثات كأداة لمراقبة الطلاب أو خصم درجات في المعمل. المنصة مساحة آمنة لتسأل عن أي Bug براحتك.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s2High">اسأل عن أي خطأ برمجى دون خوف من التقييم</div>
+        </div>
+
+        <!-- Sec 3 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">📊</div>
+            <h4 data-i18n="s3Title">إحصائيات مجردة فقط للأساتذة (Zero-Exposure)</h4>
+          </div>
+          <p data-i18n="s3Desc">
+            عضو هيئة التدريس يرى فقط الإحصائيات العامة (مثال: 70% من الطلاب يواجهون صعوبة في شجرة AVL أو الـ Dynamic Programming) ولا يظهر اسم أي طالب نهائياً.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s3High">تحسين التدريس دون كشف هوية الطالب</div>
+        </div>
+
+        <!-- Sec 4 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">🗑️</div>
+            <h4 data-i18n="s4Title">حذف حقيقي وشامل للبيانات</h4>
+          </div>
+          <p data-i18n="s4Desc">
+            عندما تقرر مسح محادثتك، تُحذف فعلياً من قواعد البيانات ومتجهات الـ Vector، وليس مجرد إخفاء شكلي في الواجهة.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s4High">True Deletion — لا توجد نسخ غير معلنة</div>
+        </div>
+
+        <!-- Sec 5 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">🔐</div>
+            <h4 data-i18n="s5Title">حماية مفاتيح الـ API والتشفير</h4>
+          </div>
+          <p data-i18n="s5Desc">
+            مفاتيح الـ API التي تدخلها لا تُحفظ كنصوص مقروءة ولا تظهر في ملفات الـ Logs وتظل تحت إدارتك الآمنة في المتصفح أو مشفرة.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s5High">تشفير كامل لمفاتيح الـ API الخاصة بك</div>
+        </div>
+
+        <!-- Sec 6 -->
+        <div class="sec-card">
+          <div class="sec-header">
+            <div class="sec-icon-wrap">🛡️</div>
+            <h4 data-i18n="s6Title">حماية من حقن الأوامر (Injection Defense)</h4>
+          </div>
+          <p data-i18n="s6Desc">
+            يتم عزل أي مستند أو سورس كود يتم رفعه وتصنيفه كمدخل غير موثوق به لمنع أي أوامر خبيثة من اختراق سياق النظام والذكاء الاصطناعي.
+          </p>
+          <div class="sec-highlight-box" data-i18n="s6High">Multi-layer Context Protection</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Chat Simulator Demo -->
+  <section class="section demo-section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="demoTag">محاكاة تفاعلية سريعة</span>
+        <h2 class="section-title" data-i18n="demoTitle">شوف بنفسك SCI-BOT بيرد إزاي على أسئلة طلاب الحاسب</h2>
+        <p class="section-desc" data-i18n="demoDesc">
+          اضغط على أي من المواقف البرمجية والدراسية وشوف الرد الذكي والأكاديمي:
+        </p>
+      </div>
+
+      <!-- Simulator Card -->
+      <div class="simulator-container">
+        <div class="sim-topbar">
+          <div class="sim-bot-status">
+            <div class="sim-avatar">
+              <img src="assets/mascot.jpg" alt="SCI-BOT Avatar">
+            </div>
+            <div class="sim-status-text">
+              <span class="sim-bot-name">SCI-BOT Assistant</span>
+              <span class="sim-badge-online" data-i18n="demoOnline">متصل ومستعد لمساعدتك في الكود</span>
+            </div>
+          </div>
+          <span class="sim-faculty-badge" data-i18n="demoFacultyBadge">علوم حاسب - عين شمس</span>
+        </div>
+
+        <div class="sim-chat-area" id="simChatArea">
+          <!-- Chat bubbles rendered dynamically via app.js -->
+        </div>
+
+        <div class="sim-presets-bar">
+          <span class="sim-presets-label" data-i18n="demoPresetsLabel">اختر سيناريو من واقع حياة طالب علوم الحاسب:</span>
+          <div class="presets-chips">
+            <button class="preset-chip active" data-preset="preset1" data-i18n="preset1">
+              1. شيت الـ Data Structures والـ AVL Tree 🌲
+            </button>
+            <button class="preset-chip" data-preset="preset2" data-i18n="preset2">
+              2. كود الـ Knapsack والـ Dynamic Programming 💻
+            </button>
+            <button class="preset-chip" data-preset="preset3" data-i18n="preset3">
+              3. هل الكود والمحادثة مراقبة من الأساتذة؟ 🔒
+            </button>
+            <button class="preset-chip" data-preset="preset4" data-i18n="preset4">
+              4. مضغوط بين تسليم المشروع والفاينال ⏱️
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supervision & Development Team -->
+  <section class="section team-section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="teamTag">فريق العمل والإشراف</span>
+        <h2 class="section-title" data-i18n="teamTitle">صُنِع بكل فخر في كلية العلوم — جامعة عين شمس</h2>
+        <p class="section-desc" data-i18n="teamDesc">
+          مشروع تخرج نوعي يجمع بين الخبرة الأكاديمية الرائدة والتنفيذ البرمجي المتقن:
+        </p>
+      </div>
+
+      <!-- Leaders Cards -->
+      <div class="supervision-cards">
+        <!-- Supervisor -->
+        <div class="member-card supervisor">
+          <span class="role-tag tag-supervisor" data-i18n="supRole">المشرف الأكاديمي على المشروع</span>
+          <h3 class="member-name" data-i18n="supName">دكتور / محمد هاشم</h3>
+          <span class="member-eng-name" data-i18n="supEn">Doctor Mohamed Hashim — Project Supervisor</span>
+          <p class="member-desc" data-i18n="supDesc">
+            الإشراف العلمي وتوجيه الرؤية الأكاديمية لمواءمة المشروع مع معايير الكلية وخدمة المنظومة التعليمية.
+          </p>
+        </div>
+
+        <!-- Technical Lead -->
+        <div class="member-card lead">
+          <span class="role-tag tag-lead" data-i18n="leadRole">القائد التقني للمشروع</span>
+          <h3 class="member-name" data-i18n="leadName">م.م / محمد مصطفى</h3>
+          <span class="member-eng-name" data-i18n="leadEn">TA Mohamed Mostafa — Technical Lead</span>
+          <p class="member-desc" data-i18n="leadDesc">
+            القيادة التقنية وهندسة معمارية الأنظمة وتوجيه فريق التطوير البرمجي وتطوير آليات الـ RAG.
+          </p>
+        </div>
+
+        <!-- System Advisor & Consultant -->
+        <div class="member-card advisor">
+          <span class="role-tag tag-advisor" data-i18n="advRole">مستشار النظام والاستشارات</span>
+          <h3 class="member-name" data-i18n="advName">م.م / هاجر محمود</h3>
+          <span class="member-eng-name" data-i18n="advEn">TA Hager Mahmoud — System Advisor & Consultant</span>
+          <p class="member-desc" data-i18n="advDesc">
+            تقديم الاستشارات الهندسية والتحليلية ومراجعة تكامل واجهات وتجربة المستخدم الأكاديمية.
+          </p>
+        </div>
+      </div>
+
+      <!-- Graduation Project Students -->
+      <div class="students-card">
+        <div class="students-header">
+          <div>
+            <span class="role-tag tag-students" data-i18n="studRole">فريق طلاب مشروع التخرج</span>
+            <h3 style="font-size: 1.45rem; color: #fff; margin-top: 0.4rem;" data-i18n="studHeader">
+              مهندسو التطوير من طلاب البكالوريوس المبدعين:
+            </h3>
+          </div>
+        </div>
+
+        <div class="students-grid">
+          <!-- Student 1 -->
+          <div class="student-item">
+            <div class="student-avatar-badge">👨‍💻</div>
+            <div class="student-info">
+              <h4 data-i18n="stud1">أحمد أشرف</h4>
+              <p data-i18n="stud1En">Ahmed Ashraf</p>
+              <span style="font-size: 0.76rem; color: #38bdf8;" data-i18n="stud1Role">تطوير وهندسة برمجيات</span>
+            </div>
+          </div>
+
+          <!-- Student 2 -->
+          <div class="student-item">
+            <div class="student-avatar-badge">👨‍💻</div>
+            <div class="student-info">
+              <h4 data-i18n="stud2">محمد شتا</h4>
+              <p data-i18n="stud2En">Mohamed Sheta</p>
+              <span style="font-size: 0.76rem; color: #38bdf8;" data-i18n="stud2Role">تطوير وهندسة برمجيات</span>
+            </div>
+          </div>
+
+          <!-- Student 3 -->
+          <div class="student-item">
+            <div class="student-avatar-badge">👨‍💻</div>
+            <div class="student-info">
+              <h4 data-i18n="stud3">يوسف</h4>
+              <p data-i18n="stud3En">Yousef</p>
+              <span style="font-size: 0.76rem; color: #38bdf8;" data-i18n="stud3Role">تطوير وهندسة برمجيات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Full Article & Executive Summary -->
+  <section class="download-section" id="download">
+    <div class="container">
+      <div class="download-banner">
+        <div class="download-info">
+          <h3 data-i18n="dlTitle">وثيقة المشروع الشاملة (Executive Summary & Guide)</h3>
+          <p data-i18n="dlDesc">
+            هل ترغب في قراءة أو طباعة الدليل المفصل للمشروع؟ قمنا بإعداد مقال شامل يغطي كافة النقاط الـ 38 المذكورة في التوصيف التقني ومعمارية النظام والأمان.
+          </p>
+          <div class="download-actions">
+            <button class="btn btn-primary" id="openArticleModalBtn" data-i18n="btnReadArticle">
+              📖 قراءة الوثيقة أونلاين
+            </button>
+            <a href="SCI-BOT_Executive_Summary.html" download="SCI-BOT_Executive_Summary.html" class="btn btn-glass" data-i18n="btnDownloadArticle">
+              ⬇️ تحميل الملف بصيغة HTML/PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-preview-mockup">
+          <span class="doc-badge-pill">PDF & HTML Export Ready</span>
+          <h4 style="color: #fff; font-size: 1.15rem; margin-bottom: 0.4rem;" data-i18n="docMockupTitle">SCI-BOT Project Whitepaper</h4>
+          <p style="color: #94a3b8; font-size: 0.85rem;" data-i18n="docMockupDesc">38 فصلاً تغطي المفهوم، الهيكل التقني، والخصوصية</p>
+          <div style="margin-top: 1.2rem; font-size: 2.5rem;">📄✨</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Suggestions & Inquiries Section -->
+  <section class="feedback-section" id="feedback">
+    <div class="container">
+      <div class="feedback-card">
+        <h3 data-i18n="sugTitle">عندك فكرة أو ميزة حابب تشوفها في البوت؟</h3>
+        <p data-i18n="sugDesc">
+          رأيكم يهمنا جداً لتطوير المنصة قبل الإطلاق الرسمي. راسل القائد التقني للمشروع مباشرة باقتراحك أو استفسارك:
+        </p>
+
+        <!-- Direct Email Badge -->
+        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" class="email-direct-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          mohamedmostafa@sci.asu.edu.eg
+        </a>
+
+        <!-- Interactive Suggestion Generator Form -->
+        <form class="interactive-suggest-form" id="suggestionForm">
+          <div class="form-group">
+            <label for="sugName" data-i18n="sugNameLabel">اسمك / تخصصك (اختياري):</label>
+            <input type="text" id="sugName" class="form-control" placeholder="مثال: أحمد - حاسب آلي وإحصاء">
+          </div>
+
+          <div class="form-group">
+            <label for="sugMessage" data-i18n="sugMsgLabel">الميزة المقترحة أو الاستفسار:</label>
+            <textarea id="sugMessage" class="form-control" rows="4" data-i18n-placeholder="sugPlaceholder" placeholder="مثلاً: حابب البوت يساعدني في تنظيم مواعيد سكاشن المعمل، أو يضيف مذكرات قسم الكيمياء..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btnSendMail">
+            ✉️ إرسال الاقتراح بالبريد الإلكتروني
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-icon" style="width: 34px; height: 34px;">
+            <img src="assets/mascot.jpg" alt="SCI-BOT">
+          </div>
+          <span style="font-weight: 800; color: #fff;">SCI-BOT — Ain Shams University</span>
+        </div>
+
+        <div class="footer-quote" data-i18n="footerQuote">
+          «صُنع بحب وشغف وكميات محترمة من القهوة في علوم عين شمس ☕»
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footerCopy">
+          © 2026 مشروع SCI-BOT. جميع الحقوق محفوظة لكلية العلوم — جامعة عين شمس.
+        </p>
+        <div style="font-size: 0.85rem; color: #64748b;">
+          Supervisor: Dr. Mohamed Hashim | Tech Lead: TA Mohamed Mostafa | Consultant: TA Hager Mahmoud
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Article Viewer Modal -->
+  <div class="modal-overlay" id="articleModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeArticleModalBtn" aria-label="Close">✕</button>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="hero-tag">SCI-BOT Documentation</span>
+        <h3 style="font-size: 1.5rem; color: #fff; margin-top: 0.5rem;">وثيقة المشروع والميزات الشاملة</h3>
+      </div>
+      
+      <iframe src="SCI-BOT_Executive_Summary.html" style="width: 100%; height: 60vh; border: 1px solid var(--border-subtle); border-radius: 12px; background: #fff;"></iframe>
+
+      <div style="margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <a href="SCI-BOT_Executive_Summary.html" target="_blank" class="btn btn-glass" style="font-size: 0.88rem;">
+          ↗ فتح في نافذة مستقلة
+        </a>
+        <a href="SCI-BOT_Executive_Summary.html" download="SCI-BOT_Executive_Summary.html" class="btn btn-primary" style="font-size: 0.88rem;">
+          ⬇️ تحميل الوثيقة كاملة
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Suggestion Modal -->
+  <div class="modal-overlay" id="suggestModal">
+    <div class="modal-card" style="max-width: 580px;">
+      <button class="modal-close-btn" id="closeSuggestModalBtn" aria-label="Close">✕</button>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="hero-tag">💡 اقتراح ميزة أو استفسار</span>
+        <h3 style="font-size: 1.45rem; color: #fff; margin-top: 0.5rem;">شاركنا أفكارك لتطوير SCI-BOT</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">
+          يتم توجيه رسالتك مباشرة إلى القائد التقني للمشروع: <strong>mohamedmostafa@sci.asu.edu.eg</strong>
+        </p>
+      </div>
+
+      <form id="modalSuggestionForm" onsubmit="event.preventDefault(); document.getElementById('suggestionForm').dispatchEvent(new Event('submit')); document.getElementById('suggestModal').classList.remove('active');">
+        <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 1.5rem;">
+          يمكنك إرسال رسالتك عبر النموذج المباشر أسفل الصفحة، أو بالضغط على الزر أدناه لفتح بريدك الإلكتروني فوراً:
+        </p>
+        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion&body=Hello%20TA%20Mohamed%20Mostafa,%0A%0AI%20would%20like%20to%20suggest%20the%20following%20feature%20for%20SCI-BOT:%0A%0A" class="btn btn-primary" style="width: 100%;">
+          ✉️ مراسلة م.م / محمد مصطفى مباشرة
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>

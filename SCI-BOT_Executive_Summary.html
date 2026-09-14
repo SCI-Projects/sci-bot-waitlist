@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCI-BOT — وثيقة المشروع الشاملة وميثاق الميزات والخصوصية | Faculty of Science, ASU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-dark: #0891b2;
+      --accent: #10b981;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #06b6d4;
+      --code-bg: #1e293b;
+      --code-text: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.8;
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 3.5rem 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px -5px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .print-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px dashed var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .print-btn {
+      background: #0284c7;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      transition: background 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: #0369a1;
+    }
+
+    .back-link {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .back-link:hover {
+      color: #0284c7;
+    }
+
+    .doc-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .badge-asu {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .doc-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .lead-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+      border-right: 5px solid var(--primary);
+      padding: 1.4rem 1.8rem;
+      border-radius: 12px;
+      margin: 2rem 0 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f766e;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+      font-size: 1.05rem;
+    }
+
+    ul, ol {
+      margin: 1rem 1.8rem 1.5rem;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .feature-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      border-radius: 12px;
+    }
+
+    .feature-item h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0284c7;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      color: #475569;
+    }
+
+    .privacy-card {
+      background: #fefce8;
+      border-right: 5px solid #eab308;
+      padding: 1.3rem 1.6rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+
+    .privacy-card h4 {
+      color: #854d0e;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .privacy-card p {
+      color: #713f12;
+      font-size: 0.98rem;
+      margin-bottom: 0;
+    }
+
+    .team-box {
+      background: #f1f5f9;
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .team-item {
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .team-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .role-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .role-supervisor { background: #fee2e2; color: #991b1b; }
+    .role-lead { background: #e0f2fe; color: #0369a1; }
+    .role-advisor { background: #dcfce7; color: #166534; }
+    .role-student { background: #f3e8ff; color: #6b21a8; }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.98rem;
+    }
+
+    .tech-table th, .tech-table td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: right;
+    }
+
+    .tech-table th {
+      background: #f1f5f9;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .print-bar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="print-bar">
+      <a href="index.html" class="back-link">← العودة إلى الصفحة الرئيسية للمشروع</a>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        طباعة أو حفظ بصيغة PDF
+      </button>
+    </div>
+
+    <header class="doc-header">
+      <span class="badge-asu">مشروع تخرج — كلية العلوم، جامعة عين شمس</span>
+      <h1>SCI-BOT: الرفيق الأكاديمي الذكي لكلية العلوم</h1>
+      <p class="doc-subtitle">التقرير الشامل للمشروع: المفهوم، الهيكل التقني، دليل الميزات للطلاب وأعضاء هيئة التدريس، وميثاق الخصوصية والأمان الفائق.</p>
+    </header>
+
+    <div class="lead-box">
+      الفكرة الجوهرية: الذكاء الاصطناعي يجب أن يتكيف مع بيئة الكلية ومقررات علوم الحاسب والبرمجيات وواقع طلابها، وليس إجبار الطلاب على التكيف مع نموذج ذكاء عام لا يفهم سياق خوارزمياتهم وشيتاتهم!
+    </div>
+
+    <h2>1. نظرة عامة والمشكلة التي يعالجها المشروع لطلاب علوم الحاسب</h2>
+    <p>
+      تتميز روبوتات الذكاء الاصطناعي العامة بقدرتها على كتابة أكواد عامة وتلخيص النصوص. ولكنها تفشل تماماً في:
+    </p>
+    <ul>
+      <li>طريقة تدريس مقررات علوم الحاسب والرياضيات في كلية العلوم بجامعة عين شمس ولائحتها الدراسية.</li>
+      <li>المحاضرات وشيتات هياكل البيانات (Data Structures) والخوارزميات (Algorithms) التي يدرسها الطالب أسبوعياً.</li>
+      <li>المراجع والأكواد المعتمدة رسمياً من قبل أساتذة ومعيدي القسم.</li>
+      <li>مصطلحات الدكاترة المعنيين بتدريس لغات البرمجة (C++, Python) وهندسة البرمجيات.</li>
+      <li>تجهيز الطالب لمناقشات المشاريع الشفوية (Oral Discussions) والفاينال بدلاً من نسخ الأكواد دون فهم.</li>
+      <li>المشكلات الأكاديمية الشائعة أثناء تسليم الـ Sprints ومشاريع التخرج.</li>
+    </ul>
+    <p>
+      هنا يأتي دور <strong>SCI-BOT</strong>: جسر ذكي يجمع بين <em>المعرفة الأكاديمية + مقررات علوم الحاسب + استدلال الذكاء الاصطناعي + تفاعل الطلاب</em> في منصة واحدة آمنة يمكن الوصول إليها عبر البريد الجامعي الرسمي.
+    </p>
+
+    <h2>2. من يحق له استخدام النظام؟ ونموذج البريد الجامعي</h2>
+    <p>
+      النظام مخصص لمجتمع كلية العلوم بجامعة عين شمس وطلاب قسم علوم الحاسب والرياضيات، ويشترط لتسجيل الدخول استخدام الحساب الجامعي المعتمد:
+      <code>studentname@sci.asu.edu.eg</code>.
+    </p>
+    <p>
+      كما يتيح النظام للطالب تشغيل الذكاء الاصطناعي الذي يفضله بمفتاحه الخاص (Bring Your Own Key) للاختيار من بين مزودي الخدمة المفضلين بحرية تامة:
+      <strong>Google Gemini, Groq, OpenAI, Anthropic, Qwen, DeepSeek, OpenRouter</strong> دون فرض نموذج واحد على الجميع.
+    </p>
+
+    <h2>3. حزمة الميزات الشاملة لطلاب الحاسب (Features for CS Students)</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h4>1. المساعد السقراطي لمقررات الحاسب</h4>
+        <p>لا يكتفي بإعطاء الكود الجاهز، بل يوجه الطالب خطوة بخطوة بالأسئلة والتلميحات الذكية لفهم الـ Logic والتعقيد الزمني O(n).</p>
+      </div>
+      <div class="feature-item">
+        <h4>2. الـ Debugging وبرمجة العلوم</h4>
+        <p>فحص الأكواد وتتبع الـ Segmentation Faults وشرح رسائل الخطأ في C++ و Python وهياكل البيانات بدون إفساد الحل بالنسخ الأعمى.</p>
+      </div>
+      <div class="feature-item">
+        <h4>3. مراجعة وثائق المشاريع والتقارير العلمية</h4>
+        <p>تدقيق وثائق المشاريع البرمجية، الـ Software Architecture، صياغة LaTeX، ومراجعة مراجع أوراق البحث لمشاريع التخرج.</p>
+      </div>
+      <div class="feature-item">
+        <h4>4. قاعدة المعرفة المشتركة لمقررات القسم (RAG)</h4>
+        <p>تصنيف ذكي بين سلايدات وشيتات دكاترة الحاسب الرسمية، وبين أكواد وتلخيصات الطلاب المعتمدة مع منع الخلط بينهما.</p>
+      </div>
+      <div class="feature-item">
+        <h4>5. الوعي بالتقويم الأكاديمي للقسم</h4>
+        <p>يتغير سلوك البوت بحسب فترات الترم: تجهيز بيئات التطوير، خطط مراجعة خوارزميات الميدتيرم، ودعم ضغط تسليمات المشاريع.</p>
+      </div>
+      <div class="feature-item">
+        <h4>6. دليل أساتذة الحاسب ومجالاتهم البحثية</h4>
+        <p>الاستعلام عن أسماء دكاترة ومعيدي القسم، اهتماماتهم البحثية (AI, Cybersecurity, Networks)، والمقررات التي يدرسونها.</p>
+      </div>
+      <div class="feature-item">
+        <h4>7. تنظيم الوقت والدعم أثناء ضغط المشاريع</h4>
+        <p>تفكيك المهام البرمجية الكبيرة إلى خطوات ومراحل واقعية، وتخفيف التوتر الدراسي مع إحالة الحالات الحرجة للجهات الرسمية.</p>
+      </div>
+      <div class="feature-item">
+        <h4>8. تشغيل الذكاء الاصطناعي المفضل لديك (Gemini, Claude, GPT)</h4>
+        <p>حرية ومرونة كاملة لربط البوت بمفتاحك الخاص مع Gemini أو Groq فائق السرعة أو Claude أو DeepSeek بدون إجبار على موديل محدد.</p>
+      </div>
+    </div>
+
+    <h2>4. ميزات أعضاء هيئة التدريس (Staff Capabilities)</h2>
+    <ul>
+      <li><strong>رصد الصعوبات الجماعية:</strong> معرفة أكثر المفاهيم التي يواجه فيها الطلاب صعوبة خلال الأسبوع (مثل: "70% من الطلاب يواجهون صعوبة في شجرة AVL").</li>
+      <li><strong>تغذية راجعة مجمعة بدون كشف الهويات:</strong> ملخص دوري لآراء الطلاب حول استيعاب المحاضرات.</li>
+      <li><strong>توجيه ومواءمة الذكاء الاصطناعي:</strong> إمكانية توجيه البوت لكيفية شرح موضوع معين بأسلوب يناسب طلاب الفرقة المحددة.</li>
+      <li><strong>توليد الأسئلة الشائعة للمقرر (FAQ Generator):</strong> اقتراح قائمة بالأسئلة المتكررة ليراجعها الدكتور ويعتمدها بضغطة زر.</li>
+    </ul>
+
+    <h2>5. ميثاق الخصوصية والأمان الفائق (Security & Privacy Fortress)</h2>
+    <p>
+      الخصوصية في SCI-BOT ليست مجرد إضافة ثانوية، بل هي الأساس المعماري للمشروع (Privacy by Design):
+    </p>
+
+    <div class="privacy-card">
+      <h4>🔒 الفصل الصارم بين البيانات الخاصة والمعرفة العامة</h4>
+      <p>محادثات الطالب، مسوداته، ملاحظاته الشخصية مفصولة تماماً ومحمية ولا تظهر لأي طالب آخر ولا تدخل ضمن المعرفة العامة.</p>
+    </div>
+
+    <div class="privacy-card">
+      <h4>🚫 المحادثات ليست أداة مراقبة أو تقييم للطالب!</h4>
+      <p>لا يتم استخدام محادثات الطلاب لتقييم درجاتهم أو سلوكهم أو علاقتهم بالأساتذة. النظام مصمم ليدعم الطالب بحرية كاملة دون خوف.</p>
+    </div>
+
+    <div class="privacy-card">
+      <h4>📊 مبدأ التجريد وإخفاء الهوية في الإحصائيات (Zero-Exposure)</h4>
+      <p>تظهر الإحصائيات للأستاذ كنسبة عامة (مثال: "الطلاب يجدون صعوبة في المعادلات التفاضلية") ولا تظهر أسماء أو هويات من سأل مطلقاً.</p>
+    </div>
+
+    <div class="privacy-card">
+      <h4>🗑️ الحذف الفعلي للبيانات (True Deletion)</h4>
+      <p>عند طلب حذف المحادثات، يتم حذفها فعلياً من قواعد البيانات ومتجهات البحث المؤقتة وليس مجرد إخفائها من الواجهة.</p>
+    </div>
+
+    <div class="privacy-card">
+      <h4>🛡️ حماية مفاتيح الـ API وحقن الأوامر (Prompt Injection Defense)</h4>
+      <p>المفاتيح لا تُحفظ كنصوص واضحة ولا تُسجل في ملفات الـ Logs، وملفات المقررات المرفوعة تُعامل كمدخلات غير موثوقة لمنع أي تعليمات خبيثة من التسلل.</p>
+    </div>
+
+    <h2>6. البنية الهندسية المقترحة (Technical Architecture)</h2>
+    <table class="tech-table">
+      <thead>
+        <tr>
+          <th>الطبقة المعمارية</th>
+          <th>التقنيات المستخدمة</th>
+          <th>الدور والهدف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>الواجهة الأمامية (Frontend)</td>
+          <td>React / Angular / Modern Static Web</td>
+          <td>واجهة سريعة وخفيفة ومتوافقة بنسبة 100% مع الهواتف المحمولة</td>
+        </tr>
+        <tr>
+          <td>بوابة الحماية والحوسبة الحافة</td>
+          <td>Cloudflare WAF / CDN / Rate Limiting</td>
+          <td>حماية من هجمات الحرمان من الخدمة والتشفير الصارم</td>
+        </tr>
+        <tr>
+          <td>الخادم والتحكم بالصلاحيات</td>
+          <td>Node.js API & RBAC Service</td>
+          <td>إدارة الجلسات وصلاحيات الطلاب والأساتذة</td>
+        </tr>
+        <tr>
+          <td>قواعد البيانات والمتجهات</td>
+          <td>Supabase / PostgreSQL + pgvector</td>
+          <td>تخزين البيانات والبحث الدلالي السريع لمذكرات المقررات</td>
+        </tr>
+        <tr>
+          <td>محرك الاستدلال والـ RAG</td>
+          <td>Python + LangChain + LangGraph</td>
+          <td>توجيه تدفق المحادثات متعدد المسارات والتحكم بالسياق</td>
+        </tr>
+        <tr>
+          <td>نماذج الذكاء الاصطناعي</td>
+          <td>Gemini, Groq, Anthropic, OpenAI, Qwen</td>
+          <td>مرونة النماذج وملاءمة التكلفة وسرعة الاستجابة</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>7. فريق الإشراف وتطوير المشروع</h2>
+    <div class="team-box">
+      <div class="team-item">
+        <span class="role-badge role-supervisor">المشرف الأكاديمي</span>
+        <strong>دكتور / محمد هاشم (Doctor Mohamed Hashim)</strong>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">الإشراف العلمي والأكاديمي على مشروع التخرج ومواءمته مع أهداف الكلية.</p>
+      </div>
+
+      <div class="team-item">
+        <span class="role-badge role-lead">القائد التقني</span>
+        <strong>م.م / محمد مصطفى (TA Mohamed Mostafa)</strong>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">Technical Lead — التوجيه التقني، هندسة النظام، ومتابعة التنفيذ البرمجي.</p>
+      </div>
+
+      <div class="team-item">
+        <span class="role-badge role-advisor">مستشار النظام</span>
+        <strong>م.م / هاجر محمود (TA Hager Mahmoud)</strong>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">System Advisor & Consultant — استشارات التحليل والتصميم وتكامل البيئة الأكاديمية.</p>
+      </div>
+
+      <div class="team-item">
+        <span class="role-badge role-student">طلاب مشروع التخرج</span>
+        <strong>أحمد أشرف (Ahmed Ashraf) — محمد شتا (Mohamed Sheta) — يوسف (Yousef)</strong>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">فريق التطوير والبحث البرمجي وبناء المنصة.</p>
+      </div>
+    </div>
+
+    <h2>8. قنوات التواصل واقتراح الميزات</h2>
+    <p>
+      نرحب بكافة الاستفسارات ومقترحات الميزات الجديدة من الطلاب وأعضاء هيئة التدريس مباشرة عبر البريد الإلكتروني الرسمي للقائد التقني للمشروع:
+    </p>
+    <p style="text-align: center; margin: 1.5rem 0;">
+      <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" style="background: #0284c7; color: #fff; text-decoration: none; padding: 0.75rem 1.8rem; border-radius: 9999px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ✉️ mohamedmostafa@sci.asu.edu.eg
+      </a>
+    </p>
+
+    <footer>
+      <p>مشروع تخرج كلية العلوم — جامعة عين شمس (Ain Shams University, Faculty of Science)</p>
+      <p>© 2026 SCI-BOT Project Team. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
