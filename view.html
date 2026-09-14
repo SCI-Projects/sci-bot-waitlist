@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCI-BOT — قريباً لطلاب علوم الحاسب | كلية العلوم - جامعة عين شمس</title>
+  <meta name="description" content="الصفحة الرسمية لمشروع SCI-BOT — الرفيق الأكاديمي الذكي لطلاب قسم علوم الحاسب والرياضيات، كلية العلوم - جامعة عين شمس. موعد الإطلاق: 15 ديسمبر 2026.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+      --font-en: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      --bg-dark: #050813;
+      --bg-card: rgba(15, 23, 42, 0.7);
+      --bg-card-hover: rgba(22, 32, 58, 0.85);
+      
+      --primary: #06b6d4;
+      --primary-hover: #22d3ee;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --indigo: #6366f1;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --border: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(6, 182, 212, 0.35);
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --shadow-glow: 0 0 40px -8px rgba(6, 182, 212, 0.35);
+      --shadow-emerald: 0 0 35px -8px rgba(16, 185, 129, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-ar);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    body.lang-en {
+      font-family: var(--font-en);
+    }
+
+    /* Ambient Lighting */
+    .glow-bg-1 {
+      position: fixed;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 70%);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-bg-2 {
+      position: fixed;
+      bottom: -100px;
+      left: -100px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.13) 0%, rgba(99, 102, 241, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header Nav */
+    .topbar {
+      width: 100%;
+      padding: 1.2rem 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .topbar-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .brand-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name span {
+      color: var(--primary);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--primary);
+      background: rgba(6, 182, 212, 0.12);
+      color: var(--primary);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: #fda4af;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #f43f5e;
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    /* Main Container */
+    .main-wrapper {
+      max-width: 960px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-glow);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--emerald), var(--indigo));
+    }
+
+    .mascot-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--primary);
+      padding: 4px;
+      background: rgba(6, 9, 19, 0.6);
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.5);
+      animation: float 4.5s ease-in-out infinite;
+    }
+
+    .mascot-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .dept-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--emerald);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+      color: #fff;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #34d399 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .punchline {
+      display: block;
+      font-size: 1.25rem;
+      color: #facc15;
+      font-weight: 800;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-summary {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.8;
+    }
+
+    /* Countdown Card */
+    .countdown-container {
+      background: rgba(6, 9, 19, 0.7);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .countdown-title {
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .countdown-item {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 0.9rem 1.2rem;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      font-family: var(--font-en);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* Quick Action Buttons */
+    .action-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #0284c7);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(6, 182, 212, 0.6);
+      color: #fff;
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--primary);
+      color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Key Points Quick Grid */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+
+    .highlight-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+    }
+
+    .hl-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Team Card */
+    .team-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .team-box h3 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .team-pill {
+      background: rgba(6, 9, 19, 0.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.1rem;
+    }
+
+    .pill-role {
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    .role-sup { color: #fb7185; }
+    .role-tech { color: var(--primary); }
+    .role-adv { color: var(--emerald); }
+    .role-stu { color: #a5b4fc; }
+
+    .pill-name {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .pill-desc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* Direct Contact Section */
+    .contact-banner {
+      margin-top: 2rem;
+      padding: 1.8rem;
+      background: linear-gradient(135deg, rgba(8, 47, 73, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .contact-banner h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-banner p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .email-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(6, 9, 19, 0.8);
+      border: 1px solid var(--primary);
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius-full);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+      font-family: var(--font-en);
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .email-chip:hover {
+      background: var(--primary);
+      color: #000;
+      transform: scale(1.03);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      background: rgba(4, 7, 17, 0.95);
+      position: relative;
+      z-index: 10;
+    }
+
+    footer p {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Keyframes */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.3); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.95rem;
+      }
+      .punchline {
+        font-size: 1.1rem;
+      }
+      .hero-card {
+        padding: 2.2rem 1.4rem;
+      }
+      .countdown-grid {
+        gap: 0.5rem;
+      }
+      .countdown-item {
+        padding: 0.7rem 0.8rem;
+        min-width: 65px;
+      }
+      .countdown-num {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glows -->
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-container">
+      <a href="view.html" class="brand-group">
+        <div class="brand-logo-wrap">
+          <img src="assets/mascot.jpg" alt="SCI-BOT">
+        </div>
+        <div class="brand-name">
+          SCI-<span>BOT</span>
+        </div>
+      </a>
+
+      <div class="topbar-actions">
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span id="txtStatusBadge">قريباً لطلاب علوم الحاسب</span>
+        </div>
+
+        <button class="lang-btn" id="langBtn" aria-label="Toggle Language">
+          🌐 English
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <!-- Hero Card -->
+    <div class="hero-card">
+      <div class="mascot-avatar">
+        <img src="assets/mascot.jpg" alt="SCI-BOT Mascot">
+      </div>
+
+      <span class="dept-tag" id="txtDeptTag">قسم علوم الحاسب والرياضيات — كلية العلوم، جامعة عين شمس</span>
+
+      <h1 id="txtTitle">
+        مش شات جي بي تي عادي..<br>
+        <span class="gradient-text">ده رفيقك في علوم الحاسب</span> اللي فاهم كليتك!
+      </h1>
+
+      <span class="punchline" id="txtPunchline">
+        «عشان ماتحتاجش تسأل جروب الدفعة على الواتساب الساعة 3 الفجر!» ☕
+      </span>
+
+      <p class="hero-summary" id="txtSummary">
+        أول مساعد ذكاء اصطناعي أكاديمي مخصص لمقررات علوم الحاسب بعين شمس، دكاترة القسم، وشيتات الخوارزميات والـ Data Structures. 
+        بيمشي معاك خطوة بخطوة بالـ Logic ويجهزك لمناقشة المشاريع الشفوية، مع حماية وخصوصية تامة عبر بريدك الجامعي المعتمد:
+        <code style="color: var(--primary); background: rgba(0,0,0,0.4); padding: 0.2rem 0.5rem; border-radius: 4px;">@sci.asu.edu.eg</code>.
+      </p>
+
+      <!-- Countdown Card -->
+      <div class="countdown-container">
+        <div class="countdown-title" id="txtCountdownTitle">
+          ⏳ العد التنازلي للإطلاق الرسمي: 15 ديسمبر 2026
+        </div>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <div class="countdown-num" id="cdDays">--</div>
+            <div class="countdown-label" id="lblDays">أيام</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cdHours">--</div>
+            <div class="countdown-label" id="lblHours">ساعات</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cdMins">--</div>
+            <div class="countdown-label" id="lblMins">دقائق</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-num" id="cdSecs">--</div>
+            <div class="countdown-label" id="lblSecs">ثوانٍ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-row">
+        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry&body=Hello%20TA%20Mohamed%20Mostafa,%0A%0AI%20have%20a%20feature%20suggestion%20for%20SCI-BOT:%0A%0A" class="btn btn-primary" id="btnSuggest">
+          💡 اقترح ميزة أو راسلنا
+        </a>
+        <a href="SCI-BOT_Executive_Summary.html" class="btn btn-glass" id="btnDoc">
+          📄 قراءة وتحميل وثيقة المشروع
+        </a>
+        <a href="index.html" class="btn btn-glass" id="btnPreviewLanding">
+          🌐 معاينة اللاندينج التفاعلية
+        </a>
+      </div>
+    </div>
+
+    <!-- Features Quick Highlights -->
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <div class="hl-icon">🧠</div>
+        <h3 id="hl1Title">تعليم سقراطي مش غش</h3>
+        <p id="hl1Desc">تلميحات برمجية وشرح لتعقيد الـ O(n) بدون حرق الإجابة عشان تستوعب الكود وتكون جاهز لمناقشة الدكتور والمعيد.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="hl-icon">💻</div>
+        <h3 id="hl2Title">تتبع الـ Bugs والـ Memory Leaks</h3>
+        <p id="hl2Desc">وداعاً للـ Segmentation Faults! فحص لأكواد C++ و Python وهياكل البيانات وتوضيح سبب الخطأ في الـ Terminal.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="hl-icon">🔒</div>
+        <h3 id="hl3Title">خصوصية 100% بدون مراقبة</h3>
+        <p id="hl3Desc">كودك ومحادثاتك ملك لك وحدك؛ لا تُستخدم أبداً لتقييم الدرجات أو المراقبة، والأساتذة بيشوفوا فقط إحصائيات مجردة مجهولة الهوية.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="hl-icon">⚡</div>
+        <h3 id="hl4Title">شغّل الذكاء الاصطناعي اللي يريحك</h3>
+        <p id="hl4Desc">حرية ربط مفتاحك الخاص (BYOK) مع Google Gemini أو Groq السريع أو Claude أو DeepSeek بدون إجبار على موديل محدد.</p>
+      </div>
+    </div>
+
+    <!-- Team Attribution Box -->
+    <div class="team-box">
+      <h3 id="txtTeamTitle">فريق الإشراف والتطوير — كلية العلوم، جامعة عين شمس</h3>
+      <div class="team-grid">
+        <div class="team-pill">
+          <span class="pill-role role-sup" id="roleSup">المشرف الأكاديمي</span>
+          <div class="pill-name" id="nameSup">دكتور / محمد هاشم</div>
+          <div class="pill-desc">Doctor Mohamed Hashim — Supervisor</div>
+        </div>
+
+        <div class="team-pill">
+          <span class="pill-role role-tech" id="roleTech">القائد التقني</span>
+          <div class="pill-name" id="nameTech">م.م / محمد مصطفى</div>
+          <div class="pill-desc">TA Mohamed Mostafa — Technical Lead</div>
+        </div>
+
+        <div class="team-pill">
+          <span class="pill-role role-adv" id="roleAdv">مستشار النظام</span>
+          <div class="pill-name" id="nameAdv">م.م / هاجر محمود</div>
+          <div class="pill-desc">TA Hager Mahmoud — System Advisor</div>
+        </div>
+
+        <div class="team-pill">
+          <span class="pill-role role-stu" id="roleStu">طلاب مشروع التخرج</span>
+          <div class="pill-name" id="nameStu">أحمد أشرف — محمد شتا — يوسف</div>
+          <div class="pill-desc">Ahmed Ashraf, Mohamed Sheta, Yousef</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Suggestion & Email Contact -->
+    <div class="contact-banner">
+      <h4 id="txtContactTitle">عندك اقتراح ميزة أو استفسار للمشروع؟</h4>
+      <p id="txtContactDesc">يسعدنا تلقي كافة مقترحاتكم البرمجية والأكاديمية مباشرة عبر البريد الرسمي للقائد التقني:</p>
+      <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" class="email-chip">
+        ✉️ mohamedmostafa@sci.asu.edu.eg
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p id="txtFooterQuote">«صُنع بحب وشغف وكميات محترمة من القهوة في علوم عين شمس ☕»</p>
+    <p id="txtFooterCopy">© 2026 مشروع SCI-BOT. جميع الحقوق محفوظة لكلية العلوم — جامعة عين شمس.</p>
+  </footer>
+
+  <!-- Self-contained Logic Script -->
+  <script>
+    // Bilingual Dictionaries
+    const i18n = {
+      ar: {
+        statusBadge: 'قريباً لطلاب علوم الحاسب',
+        deptTag: 'قسم علوم الحاسب والرياضيات — كلية العلوم، جامعة عين شمس',
+        title: 'مش شات جي بي تي عادي..<br><span class="gradient-text">ده رفيقك في علوم الحاسب</span> اللي فاهم كليتك!',
+        punchline: '«عشان ماتحتاجش تسأل جروب الدفعة على الواتساب الساعة 3 الفجر!» ☕',
+        summary: 'أول مساعد ذكاء اصطناعي أكاديمي مخصص لمقررات علوم الحاسب بعين شمس، دكاترة القسم، وشيتات الخوارزميات والـ Data Structures. بيمشي معاك خطوة بخطوة بالـ Logic ويجهزك لمناقشة المشاريع الشفوية، مع حماية وخصوصية تامة عبر بريدك الجامعي المعتمد: <code style="color: var(--primary); background: rgba(0,0,0,0.4); padding: 0.2rem 0.5rem; border-radius: 4px;">@sci.asu.edu.eg</code>.',
+        countdownTitle: '⏳ العد التنازلي للإطلاق الرسمي: 15 ديسمبر 2026',
+        days: 'أيام',
+        hours: 'ساعات',
+        mins: 'دقائق',
+        secs: 'ثوانٍ',
+        btnSuggest: '💡 اقترح ميزة أو راسلنا',
+        btnDoc: '📄 قراءة وتحميل وثيقة المشروع',
+        btnPreviewLanding: '🌐 معاينة اللاندينج التفاعلية',
+        hl1Title: 'تعليم سقراطي مش غش',
+        hl1Desc: 'تلميحات برمجية وشرح لتعقيد الـ O(n) بدون حرق الإجابة عشان تستوعب الكود وتكون جاهز لمناقشة الدكتور والمعيد.',
+        hl2Title: 'تتبع الـ Bugs والـ Memory Leaks',
+        hl2Desc: 'وداعاً للـ Segmentation Faults! فحص لأكواد C++ و Python وهياكل البيانات وتوضيح سبب الخطأ في الـ Terminal.',
+        hl3Title: 'خصوصية 100% بدون مراقبة',
+        hl3Desc: 'كودك ومحادثاتك ملك لك وحدك؛ لا تُستخدم أبداً لتقييم الدرجات أو المراقبة، والأساتذة بيشوفوا فقط إحصائيات مجردة مجهولة الهوية.',
+        hl4Title: 'شغّل الذكاء الاصطناعي اللي يريحك',
+        hl4Desc: 'حرية ربط مفتاحك الخاص (BYOK) مع Google Gemini أو Groq السريع أو Claude أو DeepSeek بدون إجبار على موديل محدد.',
+        teamTitle: 'فريق الإشراف والتطوير — كلية العلوم، جامعة عين شمس',
+        roleSup: 'المشرف الأكاديمي',
+        nameSup: 'دكتور / محمد هاشم',
+        roleTech: 'القائد التقني',
+        nameTech: 'م.م / محمد مصطفى',
+        roleAdv: 'مستشار النظام',
+        nameAdv: 'م.م / هاجر محمود',
+        roleStu: 'طلاب مشروع التخرج',
+        nameStu: 'أحمد أشرف — محمد شتا — يوسف',
+        contactTitle: 'عندك اقتراح ميزة أو استفسار للمشروع؟',
+        contactDesc: 'يسعدنا تلقي كافة مقترحاتكم البرمجية والأكاديمية مباشرة عبر البريد الرسمي للقائد التقني:',
+        footerQuote: '«صُنع بحب وشغف وكميات محترمة من القهوة في علوم عين شمس ☕»',
+        footerCopy: '© 2026 مشروع SCI-BOT. جميع الحقوق محفوظة لكلية العلوم — جامعة عين شمس.',
+        langBtnText: '🌐 English'
+      },
+      en: {
+        statusBadge: 'Coming Soon for ASU CS Students',
+        deptTag: 'Computer Science & Mathematics — Faculty of Science, Ain Shams University',
+        title: 'Not Just Another Generic AI..<br><span class="gradient-text">Your Computer Science Companion</span> That Truly Knows Your Faculty!',
+        punchline: '"So you don\'t have to desperately ping the batch WhatsApp group at 3 AM!" ☕',
+        summary: 'The first educational AI companion tailored for Computer Science students at Ain Shams University. Understands algorithms, data structures, professors, and lab sheets. Guides your logic step-by-step so you excel during oral project defenses, with 100% privacy via your official email: <code style="color: var(--primary); background: rgba(0,0,0,0.4); padding: 0.2rem 0.5rem; border-radius: 4px;">@sci.asu.edu.eg</code>.',
+        countdownTitle: '⏳ Official Release Countdown: 15 December 2026',
+        days: 'Days',
+        hours: 'Hours',
+        mins: 'Mins',
+        secs: 'Secs',
+        btnSuggest: '💡 Suggest Feature / Contact',
+        btnDoc: '📄 Read Full Documentation',
+        btnPreviewLanding: '🌐 Preview Full Landing Page',
+        hl1Title: 'Socratic Code Tutoring',
+        hl1Desc: 'Algorithmic hints and O(n) complexity guidance without spoiling solutions, preparing you for professor oral defenses.',
+        hl2Title: 'Bug Tracing & Memory Leaks',
+        hl2Desc: 'Say goodbye to Segmentation Faults! Deep debugging for C++, Python, trees, and dynamic programming.',
+        hl3Title: '100% Private, Zero Surveillance',
+        hl3Desc: 'Your code drafts are confidential and never used for grades. Faculty only sees anonymous aggregate difficulty trends.',
+        hl4Title: 'Use Any AI Model You Prefer',
+        hl4Desc: 'Bring your own API key (BYOK) to run Google Gemini, lightning-fast Groq, Claude, or DeepSeek with zero lock-in.',
+        teamTitle: 'Project Supervision & Development Team — Faculty of Science, ASU',
+        roleSup: 'Project Supervisor',
+        nameSup: 'Doctor Mohamed Hashim',
+        roleTech: 'Technical Lead',
+        nameTech: 'TA Mohamed Mostafa',
+        roleAdv: 'System Advisor & Consultant',
+        nameAdv: 'TA Hager Mahmoud',
+        roleStu: 'Graduation Project Students',
+        nameStu: 'Ahmed Ashraf, Mohamed Sheta, Yousef',
+        contactTitle: 'Have a feature suggestion or enquiry?',
+        contactDesc: 'We warmly welcome all student inquiries and ideas directly via official email to the Technical Lead:',
+        footerQuote: '"Crafted with care, passion, and lots of coffee at Faculty of Science, ASU ☕"',
+        footerCopy: '© 2026 SCI-BOT Project. Faculty of Science, Ain Shams University. All rights reserved.',
+        langBtnText: '🌐 العربية'
+      }
+    };
+
+    let currentLang = 'ar';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const dict = i18n[lang];
+      const htmlEl = document.documentElement;
+      const bodyEl = document.body;
+
+      if (lang === 'ar') {
+        htmlEl.setAttribute('lang', 'ar');
+        htmlEl.setAttribute('dir', 'rtl');
+        bodyEl.classList.remove('lang-en');
+      } else {
+        htmlEl.setAttribute('lang', 'en');
+        htmlEl.setAttribute('dir', 'ltr');
+        bodyEl.classList.add('lang-en');
+      }
+
+      document.getElementById('txtStatusBadge').innerText = dict.statusBadge;
+      document.getElementById('txtDeptTag').innerText = dict.deptTag;
+      document.getElementById('txtTitle').innerHTML = dict.title;
+      document.getElementById('txtPunchline').innerText = dict.punchline;
+      document.getElementById('txtSummary').innerHTML = dict.summary;
+      document.getElementById('txtCountdownTitle').innerText = dict.countdownTitle;
+
+      document.getElementById('lblDays').innerText = dict.days;
+      document.getElementById('lblHours').innerText = dict.hours;
+      document.getElementById('lblMins').innerText = dict.mins;
+      document.getElementById('lblSecs').innerText = dict.secs;
+
+      document.getElementById('btnSuggest').innerHTML = dict.btnSuggest;
+      document.getElementById('btnDoc').innerHTML = dict.btnDoc;
+      document.getElementById('btnPreviewLanding').innerHTML = dict.btnPreviewLanding;
+
+      document.getElementById('hl1Title').innerText = dict.hl1Title;
+      document.getElementById('hl1Desc').innerText = dict.hl1Desc;
+      document.getElementById('hl2Title').innerText = dict.hl2Title;
+      document.getElementById('hl2Desc').innerText = dict.hl2Desc;
+      document.getElementById('hl3Title').innerText = dict.hl3Title;
+      document.getElementById('hl3Desc').innerText = dict.hl3Desc;
+      document.getElementById('hl4Title').innerText = dict.hl4Title;
+      document.getElementById('hl4Desc').innerText = dict.hl4Desc;
+
+      document.getElementById('txtTeamTitle').innerText = dict.teamTitle;
+      document.getElementById('roleSup').innerText = dict.roleSup;
+      document.getElementById('nameSup').innerText = dict.nameSup;
+      document.getElementById('roleTech').innerText = dict.roleTech;
+      document.getElementById('nameTech').innerText = dict.nameTech;
+      document.getElementById('roleAdv').innerText = dict.roleAdv;
+      document.getElementById('nameAdv').innerText = dict.nameAdv;
+      document.getElementById('roleStu').innerText = dict.roleStu;
+      document.getElementById('nameStu').innerText = dict.nameStu;
+
+      document.getElementById('txtContactTitle').innerText = dict.contactTitle;
+      document.getElementById('txtContactDesc').innerText = dict.contactDesc;
+      document.getElementById('txtFooterQuote').innerText = dict.footerQuote;
+      document.getElementById('txtFooterCopy').innerText = dict.footerCopy;
+
+      document.getElementById('langBtn').innerText = dict.langBtnText;
+    }
+
+    // Toggle Button Event
+    document.getElementById('langBtn').addEventListener('click', () => {
+      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    });
+
+    // Countdown Timer to 15 December 2026
+    const targetDate = new Date('2026-12-15T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate.getTime() - now;
+
+      if (diff <= 0) {
+        document.getElementById('cdDays').innerText = '00';
+        document.getElementById('cdHours').innerText = '00';
+        document.getElementById('cdMins').innerText = '00';
+        document.getElementById('cdSecs').innerText = '00';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cdDays').innerText = String(d).padStart(2, '0');
+      document.getElementById('cdHours').innerText = String(h).padStart(2, '0');
+      document.getElementById('cdMins').innerText = String(m).padStart(2, '0');
+      document.getElementById('cdSecs').innerText = String(s).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
