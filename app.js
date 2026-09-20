@@ -177,13 +177,28 @@ const translations = {
     docMockupTitle: 'SCI-BOT Project Whitepaper',
     docMockupDesc: '38 فصلاً تغطي المفهوم، الهيكل التقني، والخصوصية',
 
-    // Suggestion Section
+    // Suggestion & Feedback Section
     sugTitle: 'عندك فكرة أو ميزة حابب تشوفها في البوت؟',
-    sugDesc: 'رأيكم يهمنا جداً لتطوير المنصة قبل الإطلاق الرسمي. راسل القائد التقني للمشروع مباشرة باقتراحك أو استفسارك:',
+    sugDesc: 'رأيكم ومقترحاتكم هي حجر الأساس لتطوير SCI-BOT قبل الإطلاق التجريبي. شاركنا أفكارك واحتياجاتك الأكاديمية بسهولة:',
+    sugFormBadge: '🌟 القناة الرسمية الأساسية للمقترحات',
+    sugFormTitle: 'نموذج الاقتراحات السريع (Google Form)',
+    sugFormDesc: 'أسرع وأسهل وسيلة لمشاركة أفكارك، ترشيح ميزات جديدة، أو طلب شيتات ومذكرات لموادك الدراسية — يستغرق دقيقة واحدة دون الحاجة لأي بريد إلكتروني!',
+    btnOpenForm: '📝 افتح نموذج الاقتراحات الرسمي',
+    sugOrEmail: 'أو كخيار بديل: التواصل المباشر بالبريد الإلكتروني',
+    sugEmailTag: 'خيار إضافي للمراسلات المفصلة',
+    sugEmailDesc: 'إذا كنت تفضل المراسلة المباشرة أو لديك استفسار أكاديمي أو تقني مفصل، يسعدنا تواصلك مع القائد التقني للمشروع:',
     sugNameLabel: 'اسمك / تخصصك (اختياري):',
     sugMsgLabel: 'الميزة المقترحة أو الاستفسار:',
     sugPlaceholder: 'مثلاً: حابب البوت يضيف شرح عملي لمكتبة معينة في بايثون، أو مراجعة أكواد الـ Git، أو شيتات مادة معينة...',
     btnSendMail: '✉️ إرسال الاقتراح بالبريد الإلكتروني',
+
+    // Modal
+    modalSugHeader: 'شاركنا أفكارك لتطوير SCI-BOT',
+    modalSugSub: 'اختر الطريقة الأنسب لك لمشاركة مقترحاتك مع فريق العمل:',
+    btnOpenFormModal: '📝 فتح نموذج الاقتراحات السريع (مُوصى به)',
+    modalFormHint: '⚡ يستغرق دقيقة واحدة — أسهل وأسرع وسيلة دون فتح برامج الإيميل',
+    sugOrEmailOption: 'أو كخيار بديل: المراسلة عبر البريد',
+    btnEmailModal: '✉️ مراسلة م.م / محمد مصطفى بالإيميل',
 
     // Footer
     footerQuote: '«صُنع بحب وشغف وكميات محترمة من القهوة في علوم عين شمس ☕»',
@@ -362,13 +377,28 @@ const translations = {
     docMockupTitle: 'SCI-BOT Project Whitepaper',
     docMockupDesc: '38 Comprehensive Chapters on Architecture & Privacy',
 
-    // Suggestion Section
+    // Suggestion & Feedback Section
     sugTitle: 'Have a Feature Suggestion or Inquiry?',
-    sugDesc: 'We value your input! Directly send your suggestions or queries to the Technical Lead via official email:',
+    sugDesc: 'Your feedback and insights are vital to shaping SCI-BOT ahead of our beta release. Share your ideas and academic needs easily:',
+    sugFormBadge: '🌟 Official Primary Feedback Channel',
+    sugFormTitle: 'Quick Suggestion Form (Google Form)',
+    sugFormDesc: 'The quickest and simplest way to submit ideas, request features, or suggest course materials—takes under a minute with no email client needed!',
+    btnOpenForm: '📝 Open Official Suggestion Form',
+    sugOrEmail: 'Or as an alternative: Direct Email Correspondence',
+    sugEmailTag: 'Alternative for In-Depth Inquiries',
+    sugEmailDesc: 'If you prefer direct correspondence or have a detailed technical/academic inquiry, reach out directly to the Technical Lead:',
     sugNameLabel: 'Your Name / Department (Optional):',
     sugMsgLabel: 'Your Suggestion or Enquiry:',
     sugPlaceholder: 'e.g. Would love to see integrated Git repo reviews, Linux terminal cheat-sheets, or specific course problem sets...',
     btnSendMail: '✉️ Send Suggestion via Email',
+
+    // Modal
+    modalSugHeader: 'Share Your Ideas to Shape SCI-BOT',
+    modalSugSub: 'Choose your preferred channel to share your ideas with our team:',
+    btnOpenFormModal: '📝 Open Quick Suggestion Form (Recommended)',
+    modalFormHint: '⚡ Takes 1 minute — fastest option with no email client required',
+    sugOrEmailOption: 'Or as an alternative: Send via Email',
+    btnEmailModal: '✉️ Email Tech Lead Directly',
 
     // Footer
     footerQuote: '"Crafted with care, passion, and lots of coffee at Faculty of Science, ASU ☕"',
@@ -675,8 +705,12 @@ function initMobileNav() {
   const navMenu = document.getElementById('navMenu');
 
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Close on link click
@@ -684,7 +718,24 @@ function initMobileNav() {
     links.forEach(l => {
       l.addEventListener('click', () => {
         navMenu.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Close on click/touch outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on window resize if crossing above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 }

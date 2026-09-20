@@ -576,41 +576,58 @@
       <div class="feedback-card">
         <h3 data-i18n="sugTitle">عندك فكرة أو ميزة حابب تشوفها في البوت؟</h3>
         <p data-i18n="sugDesc">
-          رأيكم يهمنا جداً لتطوير المنصة قبل الإطلاق الرسمي. راسل القائد التقني للمشروع مباشرة باقتراحك أو استفسارك:
+          رأيكم ومقترحاتكم هي حجر الأساس لتطوير SCI-BOT قبل الإطلاق التجريبي. شاركنا أفكارك واحتياجاتك الأكاديمية بسهولة:
         </p>
 
-        <!-- Direct Email Badge -->
-        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" class="email-direct-box">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          mohamedmostafa@sci.asu.edu.eg
-        </a>
-
-        <!-- Interactive Suggestion Generator Form -->
-        <form class="interactive-suggest-form" id="suggestionForm">
-          <div class="form-group">
-            <label for="sugName" data-i18n="sugNameLabel">اسمك / تخصصك (اختياري):</label>
-            <input type="text" id="sugName" class="form-control" placeholder="مثال: أحمد - حاسب آلي وإحصاء">
+        <!-- Main Channel: Google Form (Prominently Highlighted) -->
+        <div class="feedback-primary-box">
+          <div class="primary-channel-pill">
+            <span class="pulse-dot"></span>
+            <span data-i18n="sugFormBadge">🌟 القناة الرسمية الأساسية للمقترحات</span>
           </div>
-
-          <div class="form-group">
-            <label for="sugMessage" data-i18n="sugMsgLabel">الميزة المقترحة أو الاستفسار:</label>
-            <textarea id="sugMessage" class="form-control" rows="4" data-i18n-placeholder="sugPlaceholder" placeholder="مثلاً: حابب البوت يساعدني في تنظيم مواعيد سكاشن المعمل، أو يضيف مذكرات قسم الكيمياء..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btnSendMail">
-            ✉️ إرسال الاقتراح بالبريد الإلكتروني
-          </button>
-        </form>
-
-        <!-- Alternative: Google Form (no email needed) -->
-        <div class="feedback-alt">
-          <div class="feedback-divider"><span data-i18n="sugOr">أو</span></div>
-          <p class="feedback-alt-text" data-i18n="sugAltText">
-            مش حابب تراسل بالإيميل؟ ابعت رأيك أو اقتراحك من خلال نموذج سريع:
+          <h4 class="feedback-box-title" data-i18n="sugFormTitle">نموذج الاقتراحات السريع (Google Form)</h4>
+          <p class="feedback-box-desc" data-i18n="sugFormDesc">
+            أسرع وأسهل وسيلة لمشاركة أفكارك، ترشيح ميزات جديدة، أو طلب شيتات ومذكرات لموادك الدراسية — يستغرق دقيقة واحدة دون الحاجة لأي بريد إلكتروني!
           </p>
-          <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald" data-i18n="btnOpenForm">
-            📝 افتح نموذج الاقتراحات
+          <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-lg-glow" data-i18n="btnOpenForm">
+            📝 افتح نموذج الاقتراحات الرسمي
           </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="feedback-divider">
+          <span data-i18n="sugOrEmail">أو كخيار بديل: التواصل المباشر بالبريد الإلكتروني</span>
+        </div>
+
+        <!-- Secondary Option: Email Channel -->
+        <div class="feedback-secondary-box">
+          <span class="secondary-channel-tag" data-i18n="sugEmailTag">خيار إضافي للمراسلات المفصلة</span>
+          <p class="feedback-alt-text" data-i18n="sugEmailDesc">
+            إذا كنت تفضل المراسلة المباشرة أو لديك استفسار أكاديمي أو تقني مفصل، يسعدنا تواصلك مع القائد التقني للمشروع:
+          </p>
+
+          <!-- Direct Email Badge -->
+          <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" class="email-direct-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            mohamedmostafa@sci.asu.edu.eg
+          </a>
+
+          <!-- Interactive Suggestion Generator Form -->
+          <form class="interactive-suggest-form" id="suggestionForm">
+            <div class="form-group">
+              <label for="sugName" data-i18n="sugNameLabel">اسمك / تخصصك (اختياري):</label>
+              <input type="text" id="sugName" class="form-control" placeholder="مثال: أحمد - حاسب آلي وإحصاء">
+            </div>
+
+            <div class="form-group">
+              <label for="sugMessage" data-i18n="sugMsgLabel">الميزة المقترحة أو الاستفسار:</label>
+              <textarea id="sugMessage" class="form-control" rows="4" data-i18n-placeholder="sugPlaceholder" placeholder="مثلاً: حابب البوت يساعدني في تنظيم مواعيد سكاشن المعمل، أو يضيف مذكرات قسم الكيمياء..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btnSendMail">
+              ✉️ إرسال الاقتراح بالبريد الإلكتروني
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -654,11 +671,11 @@
       
       <iframe src="SCI-BOT_Executive_Summary.html" style="width: 100%; height: 60vh; border: 1px solid var(--border-subtle); border-radius: 12px; background: #fff;"></iframe>
 
-      <div style="margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-        <a href="SCI-BOT_Executive_Summary.html" target="_blank" class="btn btn-glass" style="font-size: 0.88rem;">
+      <div class="modal-actions">
+        <a href="SCI-BOT_Executive_Summary.html" target="_blank" class="btn btn-glass">
           ↗ فتح في نافذة مستقلة
         </a>
-        <a href="SCI-BOT_Executive_Summary.html" download="SCI-BOT_Executive_Summary.html" class="btn btn-primary" style="font-size: 0.88rem;">
+        <a href="SCI-BOT_Executive_Summary.html" download="SCI-BOT_Executive_Summary.html" class="btn btn-primary">
           ⬇️ تحميل الوثيقة كاملة
         </a>
       </div>
@@ -671,27 +688,40 @@
       <button class="modal-close-btn" id="closeSuggestModalBtn" aria-label="Close">✕</button>
       <div style="text-align: center; margin-bottom: 1.5rem;">
         <span class="hero-tag">💡 اقتراح ميزة أو استفسار</span>
-        <h3 style="font-size: 1.45rem; color: #fff; margin-top: 0.5rem;">شاركنا أفكارك لتطوير SCI-BOT</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">
-          يتم توجيه رسالتك مباشرة إلى القائد التقني للمشروع: <strong>mohamedmostafa@sci.asu.edu.eg</strong>
+        <h3 style="font-size: 1.45rem; color: #fff; margin-top: 0.5rem;" data-i18n="modalSugHeader">شاركنا أفكارك لتطوير SCI-BOT</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;" data-i18n="modalSugSub">
+          اختر الطريقة الأنسب لك لمشاركة مقترحاتك مع فريق العمل:
         </p>
       </div>
 
-      <form id="modalSuggestionForm" onsubmit="event.preventDefault(); document.getElementById('suggestionForm').dispatchEvent(new Event('submit')); document.getElementById('suggestModal').classList.remove('active');">
-        <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 1.5rem;">
-          يمكنك إرسال رسالتك عبر النموذج المباشر أسفل الصفحة، أو بالضغط على الزر أدناه لفتح بريدك الإلكتروني فوراً:
-        </p>
-        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion&body=Hello%20TA%20Mohamed%20Mostafa,%0A%0AI%20would%20like%20to%20suggest%20the%20following%20feature%20for%20SCI-BOT:%0A%0A" class="btn btn-primary" style="width: 100%;">
-          ✉️ مراسلة م.م / محمد مصطفى مباشرة
-        </a>
-
-        <div class="modal-form-alt">
-          <div class="feedback-divider"><span data-i18n="sugOr">أو</span></div>
-          <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald" data-i18n="btnOpenFormModal">
-            📝 مش حابب الإيميل؟ افتح نموذج الاقتراحات
-          </a>
+      <!-- Primary Option: Google Form -->
+      <div class="modal-primary-choice">
+        <div class="primary-channel-pill" style="margin-bottom: 0.8rem;">
+          <span class="pulse-dot"></span>
+          <span data-i18n="sugFormBadge">🌟 القناة الأساسية الرسمية</span>
         </div>
-      </form>
+        <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald" style="width: 100%; font-size: 1.05rem; padding: 0.95rem 1.4rem;" data-i18n="btnOpenFormModal">
+          📝 فتح نموذج الاقتراحات السريع (مُوصى به)
+        </a>
+        <span style="display: block; font-size: 0.82rem; color: #94a3b8; margin-top: 0.5rem;" data-i18n="modalFormHint">
+          ⚡ يستغرق دقيقة واحدة — أسهل وأسرع وسيلة دون فتح برامج الإيميل
+        </span>
+      </div>
+
+      <!-- Divider -->
+      <div class="feedback-divider">
+        <span data-i18n="sugOrEmailOption">أو كخيار بديل: المراسلة عبر البريد</span>
+      </div>
+
+      <!-- Secondary Option: Direct Email -->
+      <div class="modal-secondary-choice">
+        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion&body=Hello%20TA%20Mohamed%20Mostafa,%0A%0AI%20would%20like%20to%20suggest%20the%20following%20feature%20for%20SCI-BOT:%0A%0A" class="btn btn-glass" style="width: 100%;" data-i18n="btnEmailModal">
+          ✉️ مراسلة م.م / محمد مصطفى بالإيميل
+        </a>
+        <span style="display: block; font-size: 0.78rem; color: var(--text-dim); margin-top: 0.4rem;">
+          mohamedmostafa@sci.asu.edu.eg
+        </span>
+      </div>
     </div>
   </div>
 
