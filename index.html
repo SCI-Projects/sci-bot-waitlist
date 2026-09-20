@@ -14,6 +14,9 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Responsive fixes (must stay AFTER styles.css) -->
+  <link rel="stylesheet" href="responsive-fixes.css">
 </head>
 <body>
 
@@ -70,6 +73,12 @@
     <div class="container hero-grid">
       <!-- Hero Text Column -->
       <div class="hero-content">
+        <!-- Shown on phones only (the navbar pill is hidden there); see responsive-fixes.css -->
+        <div class="coming-soon-pill hero-status-pill">
+          <span class="pulse-dot"></span>
+          <span data-i18n="comingSoonPill">قريباً لطلاب حاسب علوم عين شمس</span>
+        </div>
+
         <div class="hero-badge-row">
           <span class="hero-tag" data-i18n="heroTag">الرفيق الذكي لطلاب علوم الحاسب والبرمجة</span>
           <span class="hero-asu-tag" data-i18n="heroAsuTag">حاسب آلي — علوم عين شمس</span>
@@ -592,6 +601,17 @@
             ✉️ إرسال الاقتراح بالبريد الإلكتروني
           </button>
         </form>
+
+        <!-- Alternative: Google Form (no email needed) -->
+        <div class="feedback-alt">
+          <div class="feedback-divider"><span data-i18n="sugOr">أو</span></div>
+          <p class="feedback-alt-text" data-i18n="sugAltText">
+            مش حابب تراسل بالإيميل؟ ابعت رأيك أو اقتراحك من خلال نموذج سريع:
+          </p>
+          <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald" data-i18n="btnOpenForm">
+            📝 افتح نموذج الاقتراحات
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -664,6 +684,13 @@
         <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion&body=Hello%20TA%20Mohamed%20Mostafa,%0A%0AI%20would%20like%20to%20suggest%20the%20following%20feature%20for%20SCI-BOT:%0A%0A" class="btn btn-primary" style="width: 100%;">
           ✉️ مراسلة م.م / محمد مصطفى مباشرة
         </a>
+
+        <div class="modal-form-alt">
+          <div class="feedback-divider"><span data-i18n="sugOr">أو</span></div>
+          <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="btn btn-emerald" data-i18n="btnOpenFormModal">
+            📝 مش حابب الإيميل؟ افتح نموذج الاقتراحات
+          </a>
+        </div>
       </form>
     </div>
   </div>
