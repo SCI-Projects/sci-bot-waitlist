@@ -662,14 +662,16 @@
 
   <!-- Modal 1: Article Viewer Modal -->
   <div class="modal-overlay" id="articleModal">
-    <div class="modal-card">
+    <div class="modal-card modal-card-article">
       <button class="modal-close-btn" id="closeArticleModalBtn" aria-label="Close">✕</button>
-      <div style="text-align: center; margin-bottom: 1.5rem;">
+      <div class="modal-header">
         <span class="hero-tag">SCI-BOT Documentation</span>
-        <h3 style="font-size: 1.5rem; color: #fff; margin-top: 0.5rem;">وثيقة المشروع والميزات الشاملة</h3>
+        <h3 class="modal-title" style="font-size: 1.45rem; color: #fff; margin-top: 0.4rem;">وثيقة المشروع والميزات الشاملة</h3>
       </div>
       
-      <iframe src="SCI-BOT_Executive_Summary.html" style="width: 100%; height: 60vh; border: 1px solid var(--border-subtle); border-radius: 12px; background: #fff;"></iframe>
+      <div class="modal-iframe-frame">
+        <iframe src="SCI-BOT_Executive_Summary.html" title="SCI-BOT Executive Summary" class="doc-iframe"></iframe>
+      </div>
 
       <div class="modal-actions">
         <a href="SCI-BOT_Executive_Summary.html" target="_blank" class="btn btn-glass">

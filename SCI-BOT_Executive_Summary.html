@@ -7,6 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('is-embedded');
+    }
+  </script>
   <style>
     :root {
       --primary: #06b6d4;
@@ -28,22 +33,49 @@
       padding: 0;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--bg-page);
       color: var(--text-main);
       line-height: 1.8;
       padding: 2.5rem 1rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .container {
       max-width: 900px;
+      width: 100%;
       margin: 0 auto;
       background: var(--bg-card);
       padding: 3.5rem 3rem;
       border-radius: 20px;
       box-shadow: 0 10px 35px -5px rgba(15, 23, 42, 0.08);
       border: 1px solid var(--border);
+      overflow-x: hidden;
+    }
+
+    /* Embedded within Modal iframe */
+    html.is-embedded body {
+      padding: 1.2rem 1rem;
+      background-color: #ffffff;
+    }
+
+    html.is-embedded .container {
+      box-shadow: none;
+      border: none;
+      padding: 0.5rem 0.5rem 1.5rem;
+      max-width: 100%;
+      border-radius: 0;
+    }
+
+    html.is-embedded .back-link {
+      display: none;
     }
 
     .print-bar {
@@ -242,14 +274,98 @@
 
     .role-supervisor { background: #fee2e2; color: #991b1b; }
     .role-lead { background: #e0f2fe; color: #0369a1; }
+    .role-director { background: #dbeafe; color: #1e40af; }
     .role-advisor { background: #dcfce7; color: #166534; }
     .role-student { background: #f3e8ff; color: #6b21a8; }
 
+    .doc-form-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .doc-form-header {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-iframe-container {
+      width: 100%;
+      height: 620px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .doc-form-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .doc-form-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .doc-btn {
+      text-decoration: none;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc-btn-emerald {
+      background: #10b981;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .doc-btn-emerald:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .doc-btn-glass {
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid var(--border);
+    }
+
+    .doc-btn-glass:hover {
+      background: #e2e8f0;
+      color: #0284c7;
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
     .tech-table {
       width: 100%;
+      min-width: 520px;
       border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.98rem;
+      margin: 0;
+      font-size: 0.95rem;
     }
 
     .tech-table th, .tech-table td {
@@ -287,14 +403,66 @@
       .print-bar {
         display: none;
       }
+      .doc-form-card {
+        display: none;
+      }
     }
 
     @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
       .container {
-        padding: 2rem 1.5rem;
+        padding: 1.8rem 1rem;
+        border-radius: 14px;
       }
       h1 {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
+      }
+      .doc-subtitle {
+        font-size: 1rem;
+      }
+      .lead-box {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 0.5rem 0.25rem;
+      }
+      .container {
+        padding: 1.2rem 0.75rem;
+        border-radius: 10px;
+      }
+      h1 {
+        font-size: 1.4rem;
+      }
+      .print-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .print-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .doc-form-card {
+        padding: 1.2rem 0.75rem;
+      }
+      .form-iframe-container {
+        height: 500px;
+      }
+      .doc-form-actions {
+        flex-direction: column;
+      }
+      .doc-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
@@ -421,47 +589,49 @@
     </div>
 
     <h2>6. البنية الهندسية المقترحة (Technical Architecture)</h2>
-    <table class="tech-table">
-      <thead>
-        <tr>
-          <th>الطبقة المعمارية</th>
-          <th>التقنيات المستخدمة</th>
-          <th>الدور والهدف</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>الواجهة الأمامية (Frontend)</td>
-          <td>React / Angular / Modern Static Web</td>
-          <td>واجهة سريعة وخفيفة ومتوافقة بنسبة 100% مع الهواتف المحمولة</td>
-        </tr>
-        <tr>
-          <td>بوابة الحماية والحوسبة الحافة</td>
-          <td>Cloudflare WAF / CDN / Rate Limiting</td>
-          <td>حماية من هجمات الحرمان من الخدمة والتشفير الصارم</td>
-        </tr>
-        <tr>
-          <td>الخادم والتحكم بالصلاحيات</td>
-          <td>Node.js API & RBAC Service</td>
-          <td>إدارة الجلسات وصلاحيات الطلاب والأساتذة</td>
-        </tr>
-        <tr>
-          <td>قواعد البيانات والمتجهات</td>
-          <td>Supabase / PostgreSQL + pgvector</td>
-          <td>تخزين البيانات والبحث الدلالي السريع لمذكرات المقررات</td>
-        </tr>
-        <tr>
-          <td>محرك الاستدلال والـ RAG</td>
-          <td>Python + LangChain + LangGraph</td>
-          <td>توجيه تدفق المحادثات متعدد المسارات والتحكم بالسياق</td>
-        </tr>
-        <tr>
-          <td>نماذج الذكاء الاصطناعي</td>
-          <td>Gemini, Groq, Anthropic, OpenAI, Qwen</td>
-          <td>مرونة النماذج وملاءمة التكلفة وسرعة الاستجابة</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>الطبقة المعمارية</th>
+            <th>التقنيات المستخدمة</th>
+            <th>الدور والهدف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الواجهة الأمامية (Frontend)</td>
+            <td>React / Angular / Modern Static Web</td>
+            <td>واجهة سريعة وخفيفة ومتوافقة بنسبة 100% مع الهواتف المحمولة</td>
+          </tr>
+          <tr>
+            <td>بوابة الحماية والحوسبة الحافة</td>
+            <td>Cloudflare WAF / CDN / Rate Limiting</td>
+            <td>حماية من هجمات الحرمان من الخدمة والتشفير الصارم</td>
+          </tr>
+          <tr>
+            <td>الخادم والتحكم بالصلاحيات</td>
+            <td>Node.js API & RBAC Service</td>
+            <td>إدارة الجلسات وصلاحيات الطلاب والأساتذة</td>
+          </tr>
+          <tr>
+            <td>قواعد البيانات والمتجهات</td>
+            <td>Supabase / PostgreSQL + pgvector</td>
+            <td>تخزين البيانات والبحث الدلالي السريع لمذكرات المقررات</td>
+          </tr>
+          <tr>
+            <td>محرك الاستدلال والـ RAG</td>
+            <td>Python + LangChain + LangGraph</td>
+            <td>توجيه تدفق المحادثات متعدد المسارات والتحكم بالسياق</td>
+          </tr>
+          <tr>
+            <td>نماذج الذكاء الاصطناعي</td>
+            <td>Gemini, Groq, Anthropic, OpenAI, Qwen</td>
+            <td>مرونة النماذج وملاءمة التكلفة وسرعة الاستجابة</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>7. فريق الإشراف وتطوير المشروع</h2>
     <div class="team-box">
@@ -474,7 +644,13 @@
       <div class="team-item">
         <span class="role-badge role-lead">القائد التقني</span>
         <strong>م.م / محمد مصطفى (TA Mohamed Mostafa)</strong>
-        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">Technical Lead — التوجيه التقني، هندسة النظام، ومتابعة التنفيذ البرمجي.</p>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">Technical Lead — التوجيه التقني، هندسة النظام، ومتابعة التنفيذ البرمجي وتطوير آليات الـ RAG.</p>
+      </div>
+
+      <div class="team-item">
+        <span class="role-badge role-director">مديرة الإدارة</span>
+        <strong>الاء سيد عمر (Alaa Sayed Omar)</strong>
+        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">Management Director — إدارة المشروع وتنسيق سير العمل بين الإشراف الأكاديمي والفريق التقني وفريق التطوير.</p>
       </div>
 
       <div class="team-item">
@@ -483,25 +659,45 @@
         <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">System Advisor & Consultant — استشارات التحليل والتصميم وتكامل البيئة الأكاديمية.</p>
       </div>
 
-      <div class="team-item">
-        <span class="role-badge role-student">طلاب مشروع التخرج</span>
-        <strong>أحمد أشرف (Ahmed Ashraf) — محمد شتا (Mohamed Sheta) — يوسف (Yousef)</strong>
-        <p style="margin: 0.2rem 0 0; font-size: 0.95rem; color: #475569;">فريق التطوير والبحث البرمجي وبناء المنصة.</p>
-      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.92rem; color: #64748b; line-height: 1.7;">
+        🎓 SCI-BOT هو مشروع تخرج بقسم علوم الحاسب يعمل على تطويره مجموعة من طلاب البكالوريوس المتميزين تحت إشراف ومتابعة الفريق الأكاديمي والتقني والإداري المذكور أعلاه.
+      </p>
     </div>
 
     <h2>8. قنوات التواصل واقتراح الميزات</h2>
     <p>
-      نرحب بكافة الاستفسارات ومقترحات الميزات الجديدة من الطلاب وأعضاء هيئة التدريس مباشرة عبر البريد الإلكتروني الرسمي للقائد التقني للمشروع:
+      نرحب بكافة الاستفسارات ومقترحات الميزات الجديدة من الطلاب وأعضاء هيئة التدريس مباشرة عبر النموذج التفاعلي أدناه:
     </p>
-    <p style="text-align: center; margin: 1.5rem 0;">
-      <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" style="background: #0284c7; color: #fff; text-decoration: none; padding: 0.75rem 1.8rem; border-radius: 9999px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.5rem;">
-        ✉️ mohamedmostafa@sci.asu.edu.eg
-      </a>
-    </p>
+
+    <!-- Embedded Suggestion Form Container -->
+    <div class="doc-form-card">
+      <div class="doc-form-header">
+        <span class="badge-asu" style="margin-bottom: 0.5rem;">🌟 القناة الرسمية الأساسية للمقترحات</span>
+        <h3 style="margin-top: 0.3rem; color: #0f172a; font-size: 1.35rem;">نموذج مقترحات وتطوير SCI-BOT</h3>
+        <p style="font-size: 0.92rem; color: #64748b; margin-bottom: 1rem;">
+          يمكنك تعبئة النموذج وإرسال مقترحك مباشرة من هنا:
+        </p>
+      </div>
+
+      <div class="form-iframe-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEzpD-MbFaFiNj51Px5AJKlFcUquQJWR6-8BgrbocBh-CBfQ/viewform?embedded=true" class="doc-form-iframe" title="نموذج مقترحات وتطوير SCI-BOT">جاري تحميل النموذج...</iframe>
+      </div>
+
+      <div class="doc-form-actions">
+        <a href="https://forms.gle/ddD9Z3V1Pd1oChNz9" target="_blank" rel="noopener noreferrer" class="doc-btn doc-btn-emerald">
+          ↗ فتح النموذج في صفحة كاملة
+        </a>
+        <a href="mailto:mohamedmostafa@sci.asu.edu.eg?subject=SCI-BOT%20Feature%20Suggestion%20or%20Enquiry" class="doc-btn doc-btn-glass">
+          ✉️ مراسلة القائد التقني بالإيميل
+        </a>
+      </div>
+    </div>
 
     <footer>
       <p>مشروع تخرج كلية العلوم — جامعة عين شمس (Ain Shams University, Faculty of Science)</p>
+      <div style="font-size: 0.85rem; color: #64748b; margin: 0.6rem 0;">
+        Supervisor: Dr. Mohamed Hashim | Tech Lead: TA Mohamed Mostafa | Management Director: Alaa Sayed Omar | Consultant: TA Hager Mahmoud
+      </div>
       <p>© 2026 SCI-BOT Project Team. All Rights Reserved.</p>
     </footer>
   </div>
