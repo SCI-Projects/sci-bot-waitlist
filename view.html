@@ -719,14 +719,20 @@
         </div>
 
         <div class="team-pill">
+          <span class="pill-role role-tech" id="roleDev" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.3);">مطور التطبيقات الأول</span>
+          <div class="pill-name" id="nameDev">م.م / إيهاب رمضان</div>
+          <div class="pill-desc">TA Ihab Ramadan — Senior App Developer</div>
+        </div>
+
+        <div class="team-pill">
           <span class="pill-role role-adv" id="roleAdv">مستشار النظام</span>
           <div class="pill-name" id="nameAdv">م.م / هاجر محمود</div>
           <div class="pill-desc">TA Hager Mahmoud — System Advisor</div>
         </div>
         
         <div class="team-pill">
-          <span class="pill-role role-adv" id="roleAdv">مدير الادارة</span>
-          <div class="pill-name" id="nameAdv">م.م / الاء سيد عمر</div>
+          <span class="pill-role role-adv" id="roleDir">مديرة الإدارة</span>
+          <div class="pill-name" id="nameDir">م.م / الاء سيد عمر</div>
           <div class="pill-desc">TA Alaa Sayed Omar — Management Director</div>
         </div>
       </div>
@@ -779,8 +785,12 @@
         nameSup: 'دكتور / محمد هاشم',
         roleTech: 'القائد التقني',
         nameTech: 'م.م / محمد مصطفى',
+        roleDev: 'مطور التطبيقات الأول',
+        nameDev: 'م.م / إيهاب رمضان',
         roleAdv: 'مستشار النظام',
         nameAdv: 'م.م / هاجر محمود',
+        roleDir: 'مديرة الإدارة',
+        nameDir: 'م.م / الاء سيد عمر',
         roleStu: 'طلاب مشروع التخرج',
         nameStu: 'أحمد أشرف — محمد شتا — يوسف',
         contactTitle: 'عندك اقتراح ميزة أو استفسار للمشروع؟',
@@ -816,8 +826,12 @@
         nameSup: 'Doctor Mohamed Hashim',
         roleTech: 'Technical Lead',
         nameTech: 'TA Mohamed Mostafa',
+        roleDev: 'Senior Application Developer',
+        nameDev: 'TA Ihab Ramadan',
         roleAdv: 'System Advisor & Consultant',
         nameAdv: 'TA Hager Mahmoud',
+        roleDir: 'Management Director',
+        nameDir: 'TA Alaa Sayed Omar',
         roleStu: 'Graduation Project Students',
         nameStu: 'Ahmed Ashraf, Mohamed Sheta, Yousef',
         contactTitle: 'Have a feature suggestion or enquiry?',
@@ -876,8 +890,12 @@
       document.getElementById('nameSup').innerText = dict.nameSup;
       document.getElementById('roleTech').innerText = dict.roleTech;
       document.getElementById('nameTech').innerText = dict.nameTech;
+      if (document.getElementById('roleDev')) document.getElementById('roleDev').innerText = dict.roleDev;
+      if (document.getElementById('nameDev')) document.getElementById('nameDev').innerText = dict.nameDev;
       document.getElementById('roleAdv').innerText = dict.roleAdv;
       document.getElementById('nameAdv').innerText = dict.nameAdv;
+      if (document.getElementById('roleDir')) document.getElementById('roleDir').innerText = dict.roleDir;
+      if (document.getElementById('nameDir')) document.getElementById('nameDir').innerText = dict.nameDir;
       document.getElementById('roleStu').innerText = dict.roleStu;
       document.getElementById('nameStu').innerText = dict.nameStu;
 

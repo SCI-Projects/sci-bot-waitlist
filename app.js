@@ -6,6 +6,10 @@
 // Bilingual Dictionaries (Arabic default + English)
 const translations = {
   ar: {
+    // Page SEO Meta
+    pageTitle: 'SCI-BOT — الرفيق الأكاديمي الذكي لكلية العلوم | جامعة عين شمس',
+    pageDescription: 'SCI-BOT هو المساعد الأكاديمي الذكي المخصص لطلاب وأعضاء هيئة التدريس بقسم علوم الحاسب بكلية العلوم - جامعة عين شمس. يفهم مقررات الكلية، الشيتات، والمحاضرات مع حماية قصوى للخصوصية والأمان.',
+
     // Navigation
     brandTitle: 'SCI-BOT',
     brandSubtitle: 'قسم علوم الحاسب — كلية العلوم، جامعة عين شمس',
@@ -152,6 +156,16 @@ const translations = {
     leadEn: 'TA Mohamed Mostafa — Technical Lead',
     leadDesc: 'القيادة التقنية وهندسة معمارية الأنظمة وتوجيه فريق التطوير البرمجي وتطوير آليات الـ RAG.',
 
+    devRole: 'مطور التطبيقات الأول',
+    devName: 'م.م / إيهاب رمضان',
+    devEn: 'TA Ihab Ramadan — Senior Application Developer',
+    devDesc: 'تطوير وهندسة تطبيقات الهواتف الذكية (Mobile App) وربطها بالواجهات البرمجية وتوفير تجربة مستخدم سلسة على مختلف المنصات.',
+
+    dirRole: 'مديرة الإدارة',
+    dirName: 'م.م / الاء سيد عمر',
+    dirEn: 'TA Alaa Sayed Omar — Management Director',
+    dirDesc: 'إدارة المشروع وتنسيق سير العمل بين الإشراف الأكاديمي والفريق التقني وفريق التطوير.',
+
     advRole: 'مستشار النظام والاستشارات',
     advName: 'م.م / هاجر محمود',
     advEn: 'TA Hager Mahmoud — System Advisor & Consultant',
@@ -159,6 +173,7 @@ const translations = {
 
     studRole: 'فريق طلاب مشروع التخرج',
     studHeader: 'مهندسو التطوير من طلاب البكالوريوس المبدعين:',
+    studNote: '🎓 SCI-BOT هو مشروع تخرج بقسم علوم الحاسب، يعمل على تطويره مجموعة من طلاب البكالوريوس تحت إشراف ومتابعة الفريق الأكاديمي والتقني المذكور أعلاه.',
     stud1: 'أحمد أشرف',
     stud1En: 'Ahmed Ashraf',
     stud1Role: 'تطوير وهندسة برمجيات',
@@ -174,6 +189,7 @@ const translations = {
     dlDesc: 'هل ترغب في قراءة أو طباعة الدليل المفصل للمشروع؟ قمنا بإعداد مقال شامل يغطي كافة النقاط الـ 38 المذكورة في التوصيف التقني ومعمارية النظام والأمان.',
     btnReadArticle: '📖 قراءة الوثيقة أونلاين',
     btnDownloadArticle: '⬇️ تحميل الملف بصيغة HTML/PDF',
+    docBadgePill: 'جاهز للتحميل بصيغة PDF و HTML',
     docMockupTitle: 'SCI-BOT Project Whitepaper',
     docMockupDesc: '38 فصلاً تغطي المفهوم، الهيكل التقني، والخصوصية',
 
@@ -188,11 +204,17 @@ const translations = {
     sugEmailTag: 'خيار إضافي للمراسلات المفصلة',
     sugEmailDesc: 'إذا كنت تفضل المراسلة المباشرة أو لديك استفسار أكاديمي أو تقني مفصل، يسعدنا تواصلك مع القائد التقني للمشروع:',
     sugNameLabel: 'اسمك / تخصصك (اختياري):',
+    sugNamePlaceholder: 'مثال: أحمد - حاسب آلي وإحصاء',
     sugMsgLabel: 'الميزة المقترحة أو الاستفسار:',
     sugPlaceholder: 'مثلاً: حابب البوت يضيف شرح عملي لمكتبة معينة في بايثون، أو مراجعة أكواد الـ Git، أو شيتات مادة معينة...',
     btnSendMail: '✉️ إرسال الاقتراح بالبريد الإلكتروني',
 
-    // Modal
+    // Modals
+    modalArticleTag: 'وثيقة المشروع',
+    modalArticleTitle: 'وثيقة المشروع والميزات الشاملة',
+    btnOpenNewTab: '↗ فتح في نافذة مستقلة',
+    btnDownloadFullDoc: '⬇️ تحميل الوثيقة كاملة',
+    modalSugTag: '💡 اقتراح ميزة أو استفسار',
     modalSugHeader: 'شاركنا أفكارك لتطوير SCI-BOT',
     modalSugSub: 'اختر الطريقة الأنسب لك لمشاركة مقترحاتك مع فريق العمل:',
     btnOpenFormModal: '📝 فتح نموذج الاقتراحات السريع (مُوصى به)',
@@ -202,10 +224,15 @@ const translations = {
 
     // Footer
     footerQuote: '«صُنع بحب وشغف وكميات محترمة من القهوة في علوم عين شمس ☕»',
-    footerCopy: '© 2026 مشروع SCI-BOT. جميع الحقوق محفوظة لكلية العلوم — جامعة عين شمس.'
+    footerCopy: '© 2026 مشروع SCI-BOT. جميع الحقوق محفوظة لكلية العلوم — جامعة عين شمس.',
+    footerTeamNote: 'الإشراف الأكاديمي: د. محمد هاشم | القائد التقني: م.م / محمد مصطفى | مطور التطبيقات الأول: م.م / إيهاب رمضان | مديرة الإدارة: م.م / الاء سيد عمر | المستشار: م.م / هاجر محمود'
   },
 
   en: {
+    // Page SEO Meta
+    pageTitle: 'SCI-BOT — Academic AI Companion for Computer Science | Ain Shams University',
+    pageDescription: 'SCI-BOT is the specialized academic AI assistant for Computer Science students and faculty at Faculty of Science, Ain Shams University. Understands coursework, problem sheets, and lectures with maximum privacy.',
+
     // Navigation
     brandTitle: 'SCI-BOT',
     brandSubtitle: 'Computer Science — Faculty of Science, Ain Shams University',
@@ -352,6 +379,16 @@ const translations = {
     leadEn: 'Technical Lead & System Architect',
     leadDesc: 'Technical direction, system architecture, RAG orchestration, and backend/AI engineering oversight.',
 
+    devRole: 'Senior Application Developer',
+    devName: 'TA Ihab Ramadan',
+    devEn: 'TA Ihab Ramadan — Senior Application Developer',
+    devDesc: 'Mobile application engineering and development, API integration, and delivering a seamless mobile user experience across platforms.',
+
+    dirRole: 'Management Director',
+    dirName: 'TA Alaa Sayed Omar',
+    dirEn: 'TA Alaa Sayed Omar — Management Director',
+    dirDesc: 'Project management and workflow coordination between academic supervision, technical leadership, and the development team.',
+
     advRole: 'System Advisor & Consultant',
     advName: 'TA Hager Mahmoud',
     advEn: 'System Advisor & Academic Consultant',
@@ -359,6 +396,7 @@ const translations = {
 
     studRole: 'Graduation Project Students',
     studHeader: 'Talented undergraduate software engineers & researchers:',
+    studNote: '🎓 SCI-BOT is a Computer Science graduation project developed by senior undergraduate students under the supervision and mentorship of the academic and technical team above.',
     stud1: 'Ahmed Ashraf',
     stud1En: 'Ahmed Ashraf',
     stud1Role: 'Software & AI Development',
@@ -374,6 +412,7 @@ const translations = {
     dlDesc: 'Would you like to read or print the comprehensive 38-chapter project paper? We prepared an in-depth document detailing all concepts, architecture layers, privacy charters, and pedagogical features.',
     btnReadArticle: '📖 Read Article Online',
     btnDownloadArticle: '⬇️ Download HTML/Print PDF',
+    docBadgePill: 'PDF & HTML Export Ready',
     docMockupTitle: 'SCI-BOT Project Whitepaper',
     docMockupDesc: '38 Comprehensive Chapters on Architecture & Privacy',
 
@@ -388,11 +427,17 @@ const translations = {
     sugEmailTag: 'Alternative for In-Depth Inquiries',
     sugEmailDesc: 'If you prefer direct correspondence or have a detailed technical/academic inquiry, reach out directly to the Technical Lead:',
     sugNameLabel: 'Your Name / Department (Optional):',
+    sugNamePlaceholder: 'e.g. Ahmed - Computer Science & Statistics',
     sugMsgLabel: 'Your Suggestion or Enquiry:',
     sugPlaceholder: 'e.g. Would love to see integrated Git repo reviews, Linux terminal cheat-sheets, or specific course problem sets...',
     btnSendMail: '✉️ Send Suggestion via Email',
 
-    // Modal
+    // Modals
+    modalArticleTag: 'Project Whitepaper',
+    modalArticleTitle: 'Comprehensive Project Documentation & Features',
+    btnOpenNewTab: '↗ Open in New Window',
+    btnDownloadFullDoc: '⬇️ Download Full Document',
+    modalSugTag: '💡 Feature Suggestion or Inquiry',
     modalSugHeader: 'Share Your Ideas to Shape SCI-BOT',
     modalSugSub: 'Choose your preferred channel to share your ideas with our team:',
     btnOpenFormModal: '📝 Open Quick Suggestion Form (Recommended)',
@@ -402,7 +447,8 @@ const translations = {
 
     // Footer
     footerQuote: '"Crafted with care, passion, and lots of coffee at Faculty of Science, ASU ☕"',
-    footerCopy: '© 2026 SCI-BOT Project. Faculty of Science, Ain Shams University. All rights reserved.'
+    footerCopy: '© 2026 SCI-BOT Project. Faculty of Science, Ain Shams University. All rights reserved.',
+    footerTeamNote: 'Supervisor: Dr. Mohamed Hashim | Tech Lead: TA Mohamed Mostafa | Senior App Developer: TA Ihab Ramadan | Management Director: TA Alaa Sayed Omar | Consultant: TA Hager Mahmoud'
   }
 };
 
@@ -492,12 +538,27 @@ function setLanguage(lang) {
     htmlEl.setAttribute('lang', 'ar');
     htmlEl.setAttribute('dir', 'rtl');
     bodyEl.classList.remove('lang-en');
-    if (toggleBtn) toggleBtn.innerHTML = '🌐 English';
+    if (toggleBtn) {
+      toggleBtn.innerHTML = '🌐 English';
+      toggleBtn.setAttribute('aria-label', 'تبديل اللغة إلى الإنجليزية');
+    }
   } else {
     htmlEl.setAttribute('lang', 'en');
     htmlEl.setAttribute('dir', 'ltr');
     bodyEl.classList.add('lang-en');
-    if (toggleBtn) toggleBtn.innerHTML = '🌐 العربية';
+    if (toggleBtn) {
+      toggleBtn.innerHTML = '🌐 العربية';
+      toggleBtn.setAttribute('aria-label', 'Switch language to Arabic');
+    }
+  }
+
+  // Update Page Title and Meta Description
+  if (translations[lang] && translations[lang].pageTitle) {
+    document.title = translations[lang].pageTitle;
+  }
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && translations[lang] && translations[lang].pageDescription) {
+    metaDesc.setAttribute('content', translations[lang].pageDescription);
   }
 
   // Update all data-i18n elements

@@ -1099,6 +1099,11 @@ body.lang-en .bubble-user {
   background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
 }
 
+.member-card.dev {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+}
+
 .role-tag {
   align-self: flex-start;
   font-size: 0.78rem;
@@ -1119,6 +1124,12 @@ body.lang-en .bubble-user {
   background: rgba(6, 182, 212, 0.15);
   color: var(--primary);
   border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.tag-dev {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
 .tag-advisor {
